@@ -1,11 +1,11 @@
 const db = require('../models');
 
-module.exports ={
+module.exports = {
     async createEvent(req, res) {
         try {
             const { title, description, cost, categories } = req.body;
             const { userId } = req.headers;
-            const {filename} = req.file;
+            const { filename } = req.file;
 
             const user = await db.User.findById(userId)
 
@@ -26,5 +26,4 @@ module.exports ={
             throw Error(`Error while Creating  new Gradient :  ${error}`)
         }
     }
-    
-    }
+}

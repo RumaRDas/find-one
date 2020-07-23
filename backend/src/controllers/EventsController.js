@@ -23,15 +23,27 @@ module.exports = {
             })
             return res.json(event);
         } catch (error) {
-            throw Error(`Error while Creating  new Gradient :  ${error}`)
+            throw Error(`Error while Creating  new Event :  ${error}`)
         }
     },
 
-    async getEventById(req, res) {
+    getEventById(req, res) {
         const { eventId } = req.params;
         db.Event.findById(eventId)
             .then(event => res.json(event))
+            .catch(err => res.status(422).json('Event Id does not exists'));
+    },
+    getAllEvents: function (req, res) {
+     db.Event.find(req.query)
+            .then(event => res.json(event))
+            .catch(err => res.status(422).json('There is no Event'));
+    },
+    getEvent: function (req, res) {
+        const { categories } = req.params;
+        const { query } = { categories } || {}
+        db.Event.find(query)
+            .then(event => res.json(event))
             .catch(err => res.status(422).json('Gradient Id does not exists'));
-    }
+    },
 
 }

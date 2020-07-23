@@ -1,5 +1,4 @@
 const db = require('../models');
-const {createUser} = require('./UserController');
 
 module.exports ={
 
@@ -13,7 +12,26 @@ module.exports ={
             event: eventId,
             date
         })
+        await registration
+        .populate(`user`)
+        .populate(`event`)
+        .execPopulate();
         return res.json(registration);
+    },
+    async getRegistration(req, res) {
+        const { registration_id } = req.params;
+        try {
+            const registration = await db.Registration.findById(registration_id)
+            await registration
+            .populate(`user`, `-password`)
+            .populate(`event`)
+            .execPopulate();
+        return res.json(registration);
+
+        } catch (error) {
+            return res.status(400).json({ message: "Registration not found" })
+
+        }
     }
 
 }

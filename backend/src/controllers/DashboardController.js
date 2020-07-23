@@ -36,7 +36,7 @@ module.exports = {
    
        async getCateEvents(req, res) {
            const { categories } = req.params;
-           const query = categories ? { categories } : {}
+           const query = { categories } || {}
            try {
                const events = await db.Event.find(query)
                if (events) {

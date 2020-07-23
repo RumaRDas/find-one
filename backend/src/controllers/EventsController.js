@@ -26,24 +26,52 @@ module.exports = {
             throw Error(`Error while Creating  new Event :  ${error}`)
         }
     },
-
-    getEventById(req, res) {
+    async getEventtById(req, res) {
         const { eventId } = req.params;
-        db.Event.findById(eventId)
-            .then(event => res.json(event))
-            .catch(err => res.status(422).json('Event Id does not exists'));
+        try{
+
+            const event = await  db.Event.findById(eventId)
+            if(event){
+                return res.json(event)
+            }
+
+        }catch(error){
+            return res.status(400).json({ message: 'Event  does not exist!' })
+
+        }
+
     },
+
     getAllEvents: function (req, res) {
      db.Event.find(req.query)
             .then(event => res.json(event))
             .catch(err => res.status(422).json('There is no Event'));
     },
-    getEvent: function (req, res) {
-        const { categories } = req.params;
-        const { query } = { categories } || {}
-        db.Event.find(query)
-            .then(event => res.json(event))
-            .catch(err => res.status(422).json('Gradient Id does not exists'));
+
+    async getCatetEventbyUseuId(req, res) {
+        const { user_id } = req.headers;
+        try {
+            const events = await db.Event.find({user: user_id})
+            if (events) {
+                return res.json(events)
+            }   
+        } catch (error) {
+           return res.status(422).json({message:'There is no Event you created!'})
+        }
     },
+
+    async getCateEvents(req, res) {
+        const { categories } = req.params;
+        const query = categories ? { categories } : {}
+        try {
+            const events = await db.Event.find(query)
+            if (events) {
+                return res.json(events)
+            }
+
+        } catch (error) {
+            throw Error(`There is no event of this categories ! ${error}`)
+        }
+    }
 
 }

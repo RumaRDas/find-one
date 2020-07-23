@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
 
 router.post('/',upload.single('thumbnail'), EventsController.createEvent)
 router.get('/:eventId', EventsController.getEventById)
+router.get('/:categories', EventsController.)
 
 
 module.exports = router;

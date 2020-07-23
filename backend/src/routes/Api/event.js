@@ -11,8 +11,9 @@ router.get('/', (req, res) => {
 })
 
 router.post('/',upload.single('thumbnail'), EventsController.createEvent)
-router.get('/:eventId', EventsController.getEventById)
-router.get('/:categories', EventsController.)
+router.get('/:eventId', EventsController.getEventtById)
+router.get('/:categories', EventsController.getCateEvents)
+router.get('/', EventsController.getAllEvents)
 
 
 module.exports = router;

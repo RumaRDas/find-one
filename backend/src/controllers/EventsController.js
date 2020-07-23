@@ -25,5 +25,13 @@ module.exports = {
         } catch (error) {
             throw Error(`Error while Creating  new Gradient :  ${error}`)
         }
+    },
+
+    async getEventById(req, res) {
+        const { eventId } = req.params;
+        db.Event.findById(eventId)
+      .then(event => res.json(event))
+      .catch(err => res.status(422).json('Gradient Id does not exists'));
     }
+
 }

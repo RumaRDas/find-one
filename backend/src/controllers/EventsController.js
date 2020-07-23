@@ -72,6 +72,16 @@ module.exports = {
         } catch (error) {
             throw Error(`There is no event of this categories ! ${error}`)
         }
+    },
+    async delete(req, res) {
+        const { eventId } = req.params;
+        try{
+            await db.Event.findByIdAndDelete(eventId)
+            return res.send(" Event deleted successfully")
+        }
+        catch (error) {
+            throw Error(`We do not have any Eventt with that id  :  ${error}`)
+        }
     }
 
 }

@@ -30,8 +30,8 @@ module.exports = {
     async getEventById(req, res) {
         const { eventId } = req.params;
         db.Event.findById(eventId)
-      .then(event => res.json(event))
-      .catch(err => res.status(422).json('Gradient Id does not exists'));
+            .then(event => res.json(event))
+            .catch(err => res.status(422).json('Gradient Id does not exists'));
     }
 
 }

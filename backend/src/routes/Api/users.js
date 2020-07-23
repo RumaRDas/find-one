@@ -2,7 +2,7 @@ const router = require("express").Router();
 const UserController = require("../../controllers/UserController")
 
 router.get('/', (req, res) => {
-	res.send('Hello from Node.js app \n')
+	res.send('Hello from user.js app \n')
 })
 
 router.post('/', UserController.store)

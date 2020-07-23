@@ -18,7 +18,7 @@ module.exports ={
         .execPopulate();
         return res.json(registration);
     },
-    async getRegistration(req, res) {
+    async getRegistrationById(req, res) {
         const { registration_id } = req.params;
         try {
             const registration = await db.Registration.findById(registration_id)

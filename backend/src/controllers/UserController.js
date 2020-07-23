@@ -2,7 +2,7 @@ const db = require('../models');
 const bcrypt = require('bcrypt');
 
 module.exports = {
-	async store(req, res) {
+	async createUser(req, res) {
 		try {
 			const { email, firstName, lastName, password } = req.body;
 

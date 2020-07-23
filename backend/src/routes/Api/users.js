@@ -6,6 +6,6 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', UserController.store)
-router.get('/:userid', UserController.getUserById)
+router.get('/:userId', UserController.getUserById)
 
 module.exports = router;

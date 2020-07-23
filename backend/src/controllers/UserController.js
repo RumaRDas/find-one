@@ -30,9 +30,9 @@ module.exports = {
     },
 
     async getUserById(req, res){
-		const { userid } = req.params;
+		const { userId } = req.params;
 		try{
-			const user = await db.User.findById(userid);
+			const user = await db.User.findById(userId);
 			return res.json(user)
 		
 		}catch(error){

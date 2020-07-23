@@ -4,10 +4,10 @@ module.exports = {
     async createEvent(req, res) {
         try {
             const { title, description, cost, categories } = req.body;
-            const { userId } = req.headers;
+            const { user_id } = req.headers;
             const { filename } = req.file;
 
-            const user = await db.User.findById(userId)
+            const user = await db.User.findById(user_id)
 
             if (!user) {
                 return res.status(422).json({ message: 'User Id does not exists' })
@@ -18,7 +18,7 @@ module.exports = {
                 description,
                 cost,
                 categories,
-                user: userId,
+                user: user_id,
                 thumbnail: filename
             })
             return res.json(event);

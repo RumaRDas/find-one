@@ -20,34 +20,29 @@ const Login= ({history}) => {
             const { message } = response.data
             console.log(message)
         }
-
     }
 
     return (
         <Container>
         <div>
+        <Container>
+            <h1 className="logHeader"> Login</h1>
             <div className="field" >
-                <div className="control has-icons-left has-icons-right">
-                    <input className="input is-danger" type="email" placeholder="Your email" name ="email" id= "email" onChange={evt =>setEmail(evt.target.value)} />
-                    <span className="icon is-small is-left">
-                        <i className="fas fa-envelope"></i>
-                    </span>
-                    <span className="icon is-small is-right">
-                        <i className="fas fa-exclamation-triangle"></i>
-                    </span>
-                </div>y
+                <div className="control">
+                    <input className="input is-danger" type="email" placeholder="Your email" name="email" id="email" onChange={evt => setEmail(evt.target.value)} />
+                </div>
             </div>
             <div className="field">
                 <div className="control">
-                    <input className="input" type="password" name="password" id="password" placeholder="Password" onChange={evt =>setPassword(evt.target.value)}  />
+                    <input className="input is-info" type="password" name="password" id="password" placeholder="Password" onChange={evt => setPassword(evt.target.value)} />
                 </div>
             </div>
             <div className="control">
                 <button className="button is-link" onClick={handleSubmit}>Submit</button>
             </div>
-        </div>
-    )
-}
+        </Container>
+    </div>
+
         </Container>
     )
 }

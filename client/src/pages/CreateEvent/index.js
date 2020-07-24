@@ -5,7 +5,7 @@ import API from '../../services/API'
 import './style.css';
 
 const CreateEvent = () => {
- 
+
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [cost, setCost] = useState("");
@@ -20,7 +20,29 @@ const CreateEvent = () => {
     const submitHandler = async (evt) => {
         evt.preventDefault();
         const user_id = localStorage.getItem('user');
-        console.log(title,description, cost, categories,date)
+        // console.log(title,description, cost, categories,date)
+        const eventData = new FormData();
+        eventData.append('thumbnail', thumbnail)
+        eventData.append('categories', categories)
+        eventData.append('title', title)
+        eventData.append('cost', cost)
+        eventData.append('description', description)
+        eventData.append('date', date)
+        if (
+            title !== '' &&
+            categories !== '' &&
+            cost !== "" &&
+            date !== "" &&
+            thumbnail !== null &&
+            description !== ''
+        ) {
+            try {
+                await api.post("./api/gradient", eventData, { headers: { user_id } })
+            } catch (error) {
+                console.log(error.message)
+            }
+        }
+        return ""
     }
 
     return (
@@ -40,7 +62,7 @@ const CreateEvent = () => {
                 <div className="field">
                     <label className="label">Categories</label>
                     <div className="control">
-                        <input className="input" id="Color" type="text" placeholder={'Categories Name'} value={categories} onChange={evt => setCategories(evt.target.value)} />
+                        <input className="input" id="categories" type="text" placeholder={'Categories Name'} value={categories} onChange={evt => setCategories(evt.target.value)} />
                     </div>
                 </div>
 

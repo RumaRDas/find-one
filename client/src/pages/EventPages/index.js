@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import Container from '../../components/Container'
+import API from '../../services/API'
+import moment from 'moment';
 import './style.css';
 
-const EventPages = () => {
+const EventPages = ({history}) => {
+
+    const [gradients, setGradients] = useState([]);
+    const [selected, setSelected] = useState(null);
+    const [error, setError] = useState(false)
+    const [success, SetSuccess] = useState(false);
+    const user_id = localStorage.getItem('user');
     return (
 
         <>
@@ -19,10 +27,12 @@ const EventPages = () => {
           <div>
             <ul className="gradient-list">
            <li>
-                    <header className="deletBtn">                
+                    <header className="deletBtn">
+                 
                           <div>
                             <button className="button is-danger is small">Delete</button>
                           </div>
+
                     </header>
                     <strong>{gradient.title}</strong>
                     <span>Gradient Date: </span>

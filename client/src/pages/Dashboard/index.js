@@ -10,7 +10,7 @@ const Dashboard = ({history}) => {
 
     return (
         <Container style={{ minHeight: "500pxs" }}>
-        <div className="box1"> Event Pages </div>          
+        <div className="box1" onClick={() => history.push('/enentpages')}> Event Pages </div>          
         </Container>
   
 

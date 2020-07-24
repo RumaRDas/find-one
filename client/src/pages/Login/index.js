@@ -1,8 +1,15 @@
 import React from 'react';
-import DashBoard from '../Dashboard'
+import Container from '../../components/Container';
+import API from '../../services/API'
+import './style.css'
 
-const index = () =>{
+const index = ({histrory}) => {
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
     return (
+        <Container>
         <div>
             <div className="field" >
                 <div className="control has-icons-left has-icons-right">
@@ -24,6 +31,7 @@ const index = () =>{
                 <button className="button is-link">Submit</button>
             </div>
         </div>
+        </Container>
     )
 }
 

@@ -11,7 +11,8 @@ const CreateEvent = () => {
     const [cost, setCost] = useState("");
     const [date, setDate] = useState("");
     const [categories, setCategories] = useState("")
-    const [thumbnail, setThumbnail] = useState("");
+    const [thumbnail, setThumbnail] = useState(null);
+    const [errorMessage, setErrorMessage] = useState(false);
 
     const preview = useMemo(() => {
         return thumbnail ? URL.createObjectURL(thumbnail) : null;
@@ -28,7 +29,8 @@ const CreateEvent = () => {
         eventData.append('cost', cost)
         eventData.append('description', description)
         eventData.append('date', date)
-        if (
+        try {
+            if (
             title !== '' &&
             categories !== '' &&
             cost !== "" &&
@@ -36,13 +38,22 @@ const CreateEvent = () => {
             thumbnail !== null &&
             description !== ''
         ) {
-            try {
+            console.log("Event has been sent")
                 await API.post("./api/event", eventData, { headers: { user_id } })
-            } catch (error) {
-                console.log(error.message)
+                console.log(eventData);
+                console.log("Event has been saved")
+            } else {
+                setErrorMessage(true)
+                setTimeout(() => {
+                    setErrorMessage(false)
+                }, 2000)
+                console.log("Missing required Data")
             }
-        }
-        return ""
+        } catch (error) {
+            Promise.reject(error);
+            console.log(error.message);
+            }
+       
     }
 
     return (
@@ -103,6 +114,9 @@ const CreateEvent = () => {
                         <button className="button is-link is-light" type="submit">Cancel</button>
                     </div>
                 </div>
+                { errorMessage ? (
+                    <div className="notification is-danger is-light event-validation"> Missing require information</div>
+                ): ''}
 
             </Container>
         </div>

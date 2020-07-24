@@ -1,7 +1,7 @@
 const db = require('../models');
 
 module.exports = {
-    async approve(req, res) {
+    async rejection(req, res) {
         try {
             const { registration_id } = req.params;
             const registration = await db.Registration.findById(registration_id);

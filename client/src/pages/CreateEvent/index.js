@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import Container from '../../components/Container';
 import API from '../../services/API'
 import './style.css';
@@ -10,6 +10,10 @@ const CreateEvent = () => {
     const [price, setPrice] = useState("");
     const [date, setDate] = useState("");
     const [thumbnail, setThumbnail] = useState("");
+
+    const preview = useMemo(() => {
+        return thumbnail ? URL.createObjectURL(thumbnail) : null;
+    }, [thumbnail])
 
     const submitHandler = async (evt) => {
         evt.preventDefault();

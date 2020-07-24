@@ -36,7 +36,8 @@ align-items: center;
 .container h1{
     font-size: 40px;
     font-family: "Roboto", Arial, Helvetica, sans-serif;
-    color: white;
+    color: rgb(179, 81, 89);
+    text-align: center;
 }
 
 .formAli{

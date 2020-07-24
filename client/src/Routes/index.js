@@ -11,8 +11,8 @@ const index = () => {
     return (
         <BrowserRouter>
             <Switch>
-                <Route path ='/login' exact component = {Login} />
-                <Route path ='/' component = {Dashboard} />
+                <Route path ='/login'  component = {Login} />
+                <Route path ='/' exact component = {Dashboard} />
                 <Route path ='/event' component = {EventPages} />
                 <Route path = '/createvent' component = {CreateEvent}/>
                 <Route path='/registration' component={Registration} />

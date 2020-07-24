@@ -56,10 +56,8 @@ const Login= ({ history }) => {
                     <button className="submit-btn" onClick={handleSubmit}>Sign in</button>
                 </div>
                 <div className="control">
-                    <button className="login-btn" onClick={() => history.push('/register')}>Register</button>
+                    <button className="login-btn" onClick={() => history.push('/registration')}>Register</button>
                 </div>
-                
-
             {error ? (
                 <div className="notification is-danger is-light login-validation">{errorMessage}</div>
             ) : ''}

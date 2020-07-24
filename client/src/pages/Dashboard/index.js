@@ -1,5 +1,4 @@
 import React from 'react';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Container from '../../components/Container';
 import EventPages from '../EventPages';
 import './style.css';

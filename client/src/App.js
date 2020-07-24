@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Container>
-        <h1> Fnn with Color</h1>
+        <h1> Fun with Color</h1>
         <Routes />
       </Container>
     </div>

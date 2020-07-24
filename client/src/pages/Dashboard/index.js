@@ -1,13 +1,18 @@
 import React from 'react';
-import Container from '../../components/Container'
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import Container from '../../components/Container';
+import EventPages from '../EventPages';
+import './style.css';
 
-const index = () => {
+const Dashboard = ({history}) => {
     return (
+
         <Container style={{ minHeight: "500pxs" }}>
-            <h1>Hello Dashboard</h1>
+        <div className="box1"> Event Pages </div>          
         </Container>
+  
 
     )
 }
 
-export default index;
+export default Dashboard;

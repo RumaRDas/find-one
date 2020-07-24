@@ -1,0 +1,13 @@
+.box1 { 
+    font-size:25px; 
+    font-family:Tahoma; 
+    background-color: rgb(172, 236, 156);
+    color: black;
+   text-align: auto;
+   margin-top: 40px;
+    padding: 40px;
+    height: 200px;
+    border:1px solid rgb(243, 190, 190);
+ overflow:hidden; 
+ box-shadow: 2px 2px #6e6d6d;
+    }

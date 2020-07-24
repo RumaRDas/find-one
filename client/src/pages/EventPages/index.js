@@ -6,11 +6,31 @@ import './style.css';
 
 const EventPages = ({history}) => {
 
-    const [gradients, setGradients] = useState([]);
+    const [events, setEvents] = useState([]);
     const [selected, setSelected] = useState(null);
     const [error, setError] = useState(false)
     const [success, SetSuccess] = useState(false);
     const user_id = localStorage.getItem('user');
+
+      //  console.log(user_id)
+  useEffect(() => {
+    getEvents()
+
+  }, [])
+
+  
+  const filterHandler = (query) => {
+    setSelected(query)
+    getEvents(query)
+  }
+
+  const getEvents = async (filter) => {
+    const url = filter ? `/gradient/${filter}` : `/dashboard`
+    const response = await api.get(url, { headers: { user_id } })
+
+    setGradients(response.data)
+  }
+
     return (
 
         <>

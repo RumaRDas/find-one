@@ -3,7 +3,7 @@ const db = require('../models');
 module.exports = {
     async createEvent(req, res) {
         try {
-            const { title, description, cost, categories } = req.body;
+            const { title, description, cost, categories, date } = req.body;
             const { user_id } = req.headers;
             const { filename } = req.file;
 
@@ -16,12 +16,15 @@ module.exports = {
             const event = await db.Event.create({
                 title,
                 description,
-                cost,
+                cost:parseFloat(cost),
                 categories,
+                date,
                 user: user_id,
                 thumbnail: filename
             })
+            console.log("event created successfuly")
             return res.json(event);
+      
         } catch (error) {
             throw Error(`Error while Creating  new Event :  ${error}`)
         }

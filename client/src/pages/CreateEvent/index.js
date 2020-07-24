@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import Container from '../../components/Container';
 import cameraIcon from '../../assets/image/camera.png'
-import API from '../../services/API'
+import API from '../../services/API';
 import './style.css';
 
 const CreateEvent = () => {
@@ -37,7 +37,7 @@ const CreateEvent = () => {
             description !== ''
         ) {
             try {
-                await api.post("./api/gradient", eventData, { headers: { user_id } })
+                await API.post("./api/event", eventData, { headers: { user_id } })
             } catch (error) {
                 console.log(error.message)
             }
@@ -74,12 +74,14 @@ const CreateEvent = () => {
                 </div>
 
                 <div className="field">
+
                     <label className="label">Cost</label>
                     <div className="control">
-                        <input className="input is-success" type="Number" placeholder={' $0.00'} value={cost} id="price" onChange={evt => setCost(evt.target.value)} />
+                        <input className="input is-success" type="Number" placeholder={' $0.00'} value={cost} id="cost" onChange={evt => setCost(evt.target.value)} />
                     </div>
                 </div>
 
+                
                 <div className="field">
                     <label className="label">Date</label>
                     <div className="control">

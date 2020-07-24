@@ -7,18 +7,22 @@ const Login= ({history}) => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState(false);
 
-    const handleSubmit = async evt => {
+    const handleSubmit = async (evt) => {
         evt.preventDefault();
-        console.log("result of submit", email, password);
+       // console.log("result of submit", email, password);
         const response = await API.post('/api/login', { email, password })
         const userId = response.data._id || false;
         if (userId) {
             localStorage.setItem('user', userId)
             history.push('/dashboard')
         } else {
-            const { message } = response.data
-            console.log(message)
+            setError(true)
+            setTimeout(() => {
+                setError(false)
+            }, 2000)
+            console.log("Missing required Data")
         }
     }
 
@@ -39,8 +43,10 @@ const Login= ({history}) => {
             <div className="control">
                 <button className="button is-link" onClick={handleSubmit}>Submit</button>
             </div>
+            { error ? (
+                <div className="notification is-danger is-light login-validation"> Login In not successful</div>
+            ): ''}
         </Container>
-
     )
 }
 

@@ -8,7 +8,9 @@ function App() {
     <div className="App">
       <Container>
         <h1> Fun with Color</h1>
+        <div className="content">
         <Routes />
+      </div>
       </Container>
     </div>
   );

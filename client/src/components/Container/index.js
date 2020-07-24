@@ -2,7 +2,7 @@ import React from 'react';
 
 const index = (props) => {
     return (
-        <main className="container" {...props} />
+        <main className="container " {...props} />
     )
 }
 

@@ -13,7 +13,7 @@ module.exports ={
             date
         })
         await registration
-        .populate(`user`)
+        .populate(`user`,`-password`)
         .populate(`event`)
         .execPopulate();
         return res.json(registration);

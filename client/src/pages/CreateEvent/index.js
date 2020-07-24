@@ -1,14 +1,16 @@
 import React, { useState, useMemo } from 'react';
 import Container from '../../components/Container';
+import cameraIcon from '../../assets/image/camera.png'
 import API from '../../services/API'
 import './style.css';
 
 const CreateEvent = () => {
-    const user_id = localStorage.getItem('user');
+ 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
-    const [price, setPrice] = useState("");
+    const [cost, setCost] = useState("");
     const [date, setDate] = useState("");
+    const [categories, setCategories] = useState("")
     const [thumbnail, setThumbnail] = useState("");
 
     const preview = useMemo(() => {
@@ -17,72 +19,64 @@ const CreateEvent = () => {
 
     const submitHandler = async (evt) => {
         evt.preventDefault();
+        const user_id = localStorage.getItem('user');
+        console.log(title,description, cost, categories,date)
     }
 
     return (
-
         <div>
             <Container>
                 <h1 className="eveHeader"> Create Your Event</h1>
+                <div className="field">
+                    <label className="label">Upload Your Image</label>
+                    <label id="thumbnail" style={{ backgroundImage: `url(${preview})` }} className={thumbnail ? 'has-thumbnail' : ''}>
+                        <div className="file is-info has-name">
+                            <input className="file-input" type="file" onChange={evt => setThumbnail(evt.target.files[0])} />
+                            <img src={cameraIcon} style={{ maxWidth: "50px" }} alt="upload img icon" />
+                        </div>
+                    </label>
+                </div>
+
+                <div className="field">
+                    <label className="label">Categories</label>
+                    <div className="control">
+                        <input className="input" id="Color" type="text" placeholder={'Categories Name'} value={categories} onChange={evt => setCategories(evt.target.value)} />
+                    </div>
+                </div>
 
                 <div className="field">
                     <label className="label">Event Name</label>
                     <div className="control">
-                        <input className="input" id="title" type="text" placeholder="Event Name" />
+                        <input className="input" id="title" type="text" placeholder={'Event Title'} value={title} onChange={evt => setTitle(evt.target.value)} />
                     </div>
                 </div>
 
                 <div className="field">
-                    <label className="label">Price</label>
+                    <label className="label">Cost</label>
                     <div className="control">
-                        <input className="input is-success" type="Number" placeholder="$" value="bulma" id="price" />
+                        <input className="input is-success" type="Number" placeholder={' $0.00'} value={cost} id="price" onChange={evt => setCost(evt.target.value)} />
                     </div>
                 </div>
 
                 <div className="field">
-                    <label className="label">Upload Your Image</label>
-                    <div className="file is-info has-name">
-                        <label className="file-label">
-                            <input className="file-input" type="file" name="thumbnail" id="thumbnail" />
-                            <span className="file-cta">
-                                <span className="material-icons mr-4">
-                                    cloud_upload
-                                 </span>
-                                <span className="file-label">
-                                    Image file…
-                                 </span>
-                            </span>
-                            <span className="file-name ">
-                                No file choosen
-                            </span>
-                        </label>
-                    </div>
-                </div>
-
-                <div className="field">
-                    <label className="label">Subject</label>
+                    <label className="label">Date</label>
                     <div className="control">
-                        <div className="select">
-                            <select>
-                                <option>Select dropdown</option>
-                                <option>With options</option>
-                            </select>
-                        </div>
+                        <input className="input is-success" type="date" placeholder={' Event Date'} value={date} id="date" onChange={evt => setDate(evt.target.value)} />
                     </div>
                 </div>
 
                 <div className="field">
                     <label className="label">Description</label>
                     <div className="control">
-                        <textarea className="textarea" placeholder="Description" id="description"></textarea>
+                        <textarea className="textarea" placeholder={'Event description'} value={description} id="description" onChange={evt => setDescription(evt.target.value)}></textarea>
                     </div>
                 </div>
                 <div className="field is-grouped">
                     <div className="control">
-                        <button className="button is-link">Submit</button>
+                        <button className="button is-link" onClick={submitHandler}>Submit</button>
                     </div>
                     <div className="control">
-                        <button className="button is-link is-light">Cancel</button>
+                        <button className="button is-link is-light" type="submit">Cancel</button>
                     </div>
                 </div>
 

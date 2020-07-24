@@ -18,58 +18,69 @@ const EventPages = ({history}) => {
 
   }, [])
 
-  
+  const myeventsHandler = async () => {
+    setSelected("myevents")
+    const response = await API.get(`/api/dashboard/user/gradients`, { headers: { user_id } })
+    setGradients(response.data)
+  }
+
+
   const filterHandler = (query) => {
     setSelected(query)
     getEvents(query)
   }
 
   const getEvents = async (filter) => {
-    const url = filter ? `/gradient/${filter}` : `/dashboard`
+    const url = filter ? `/event/${filter}` : `/eventpage`
     const response = await api.get(url, { headers: { user_id } })
-
-    setGradients(response.data)
+    setEvents(response.data)
   }
 
     return (
 
-        <>
-          <div className="filter-panel">
-            <div className="buttons field has-addons ">
-              <button className="button is-warning"  >ALL Color</button>
-              <button className="button is-danger" >My Gradieny</button>
-              <button className="button is-success" >Red</button>
-              <button className="button is-info" >Blue</button>
-              <button className="button is-danger" >Black</button>
-            </div>
-            <button className="button is-dark"  >Back</button>
-          </div>
-          <div>
-            <ul className="gradient-list">
-           <li>
-                    <header className="deletBtn">
-                 
-                          <div>
-                            <button className="button is-danger is small">Delete</button>
-                          </div>
+      <>
+      <div className="filter-panel">
+        <div className="buttons field has-addons ">
+          <button className="button is-warning" onClick={() => filterHandler(null)} active={selected === null}>ALL Categories</button>
+          <button className="button is-danger" onClick={myeventsHandler} active={selected === "myevents"}>My Event</button>
+          <button className="button is-success" onClick={() => filterHandler("red")} active={selected === "red"}>Red</button>
+          <button className="button is-info" onClick={() => filterHandler("blue")} active={selected === "blue"}>Blue</button>
+          <button className="button is-danger" onClick={() => filterHandler("black")} active={selected === "black"}>Black</button>
+        </div>
+        <button className="button is-dark" onClick={() => history.push("/eventpage")} >Back</button>
+      </div>
+      <div>
+        <ul className="gradient-list">
+          {
+            events.map(event => (
+              <li key={event._id}>
+                <header style={{ backgroundImage: `url(${gradient.thumbnail_url})` }} className="deletBtn">
+                  {
+                  event.user === user_id ?
+                      <div>
+                        <button className="button is-danger is small" >Delete</button>
+                      </div>
+                      : ""
+                  }
+                </header>
+                <strong>{event.title}</strong>
+                <span>Gradient Date: {moment(event.date).format('MMMM Do YYYY')}</span>
+                <span> Gradient Top:{event.color}</span>
+                <span> gradient price: {parseFloat(event.price).toFixed(2)}</span>
+                <span>{event.description}</span>
+                <button className="button is-small is-dark ">Subscribe</button>
 
-                    </header>
-                    <strong>{gradient.title}</strong>
-                    <span>Gradient Date: </span>
-                    <span> Gradient Top:</span>
-                    <span> gradient price:</span>
-                    <span></span>
-                    <button className="button is-small is-dark ">Subscribe</button>
-   
-                  </li>
 
-            </ul>
-                   </div>
-        </>
-    
-      )
-    }
-    
+              </li>
+            )
+            )
+          }
 
+        </ul>
+      </div>
+    </>
+
+  )
+}
 
 export default EventPages;

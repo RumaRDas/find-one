@@ -16,7 +16,7 @@ const index = () => {
                 <Route path ='/event' component = {EventPages} />
                 <Route path = '/createvent' component = {CreateEvent}/>
                 <Route path='/registration' component={Registration} />
-                <Route path='/eventpages' component={EventPages} />
+                <Route path='/eventpage' component={EventPages} />
             </Switch>
         </BrowserRouter>
     )

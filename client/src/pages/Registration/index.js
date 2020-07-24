@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import API from '../../services/API'
 import './style.css';
 
-function Registration() {
+function Registration({history}) {
 
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -13,7 +13,7 @@ function Registration() {
         evt.preventDefault();
         console.log("result of submit", email, password, firstName, lastName);
 
-        const response = await api.post('/api/registration', { firstName, lastName, email, password })
+        const response = await API.post('/api/registration', { firstName, lastName, email, password })
         const userId = response.data._id || false;
         if (userId) {
             localStorage.setItem('user', userId)

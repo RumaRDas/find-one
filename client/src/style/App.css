@@ -14,7 +14,7 @@ body,
 }
 
 body {
-    background: rgba(0,0,0,0.200) url('../assets/back.webp') no-repeat;
+    background: rgba(0,0,0,0.200) url('../assets/image/back.jpg') no-repeat;
     background-size: cover;
     height:100%;
     min-height: 900px; 
@@ -30,6 +30,7 @@ body {
 
 .container h1{
     font-size: 40px;
+    font-weight: 200px;
     font-family: "Roboto", Arial, Helvetica, sans-serif;
-    color: rgb(179, 81, 89);
+    color: black;
 }

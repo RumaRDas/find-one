@@ -1,10 +1,15 @@
 import React from 'react';
+import Container from './components/Container';
+import Routes from './Routes'
 import './style/App.css';
 
 function App() {
   return (
     <div className="App">
-    <h1>Hello world</h1>
+      <Container>
+        <h1> Fnn with Color</h1>
+        <Routes />
+      </Container>
     </div>
   );
 }

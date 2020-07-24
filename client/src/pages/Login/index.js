@@ -23,8 +23,7 @@ const Login= ({history}) => {
     }
 
     return (
-        <Container>
-        <div>
+
         <Container>
             <h1 className="logHeader"> Login</h1>
             <div className="field" >
@@ -41,9 +40,7 @@ const Login= ({history}) => {
                 <button className="button is-link" onClick={handleSubmit}>Submit</button>
             </div>
         </Container>
-    </div>
 
-        </Container>
     )
 }
 

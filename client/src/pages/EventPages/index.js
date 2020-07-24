@@ -9,4 +9,4 @@ const EventPages = () => {
     )
 }
 
-export default EventPages
+export default EventPages;

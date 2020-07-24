@@ -1,16 +1,20 @@
 import React from 'react';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Login from '../pages/Login';
-import Dashboard from'../pages/Dashboard';
+import Dashboard from '../pages/Dashboard';
+import EventPages from '../pages/EventPages';
+import Registration from '../pages/Registration';
 
-const index = () =>{
+const index = () => {
     return (
-<BrowserRouter>
-<Switch>
-<Route path='/' exact component={Login}/>
-<Route path='/dashboard' component={Dashboard}/>
-</Switch>
-</BrowserRouter>
+        <BrowserRouter>
+            <Switch>
+                <Route path='/' exact component={Login} />
+                <Route path='/dashboard' component={Dashboard} />
+                <Route path='/event' component={EventPages} />
+                <Route path='/registration' component={Registration} />
+            </Switch>
+        </BrowserRouter>
     )
 }
 

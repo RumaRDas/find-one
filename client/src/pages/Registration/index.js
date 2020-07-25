@@ -20,7 +20,7 @@ function Registration({history}) {
                 password !== '' &&
                 firstName !== '' &&
                 lastName !== '') {
-                const response = await API.post('/api/registration', { firstName, lastName, email, password })
+                const response = await API.post('./api/users', { firstName, lastName, email, password })
                 const userId = response.data._id || false;
                 if (userId) {
                     localStorage.setItem('user', userId)

@@ -1,0 +1,27 @@
+.navStyle{
+    background-color: white;
+    width: 100%;
+}
+.navestyle{
+    width: 60%;
+}
+.pink-btn{
+    background:  rgb(179, 81, 89);
+    color: #ffffff;
+
+}
+.pink-btn:hover{
+    background:  rgb(231, 143, 150); 
+    opacity: 1;
+    color: #e8f7a6;
+}
+.purple-btn{
+    background:  rgb(125, 133, 202); ;
+    color: #ffffff;
+}
+.purple-btn:hover{
+    background:  rgb(188, 194, 250); 
+    color: #e8f7a6;
+    opacity: 1;
+}
+

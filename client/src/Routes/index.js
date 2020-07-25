@@ -5,20 +5,22 @@ import Dashboard from '../pages/Dashboard';
 import EventPages from '../pages/EventPages';
 import Registration from '../pages/Registration';
 import CreateEvent from '../pages/CreateEvent';
+import Navbar from '../components/Navbar';
 
 
 const index = () => {
     return (
-        <BrowserRouter>
+
             <Switch>
-                <Route path ='/login'  component = {Login} />
-                <Route path ='/' exact component = {Dashboard} />
+                <Route path ='/login'  component = {Login} />          
                 <Route path ='/event' component = {EventPages} />
                 <Route path = '/createvent' component = {CreateEvent}/>
                 <Route path='/registration' component={Registration} />
                 <Route path='/eventpage' component={EventPages} />
+                <Route path='/navbar' component={Navbar} />
+                <Route path ='/' exact component = {Dashboard} />
             </Switch>
-        </BrowserRouter>
+  
     )
 }
 

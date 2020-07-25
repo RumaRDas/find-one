@@ -37,9 +37,8 @@ const Login= ({ history }) => {
     }
 
     return (
-
         <Container>
-        <div>
+        <div >
             <h1 className="logHeader"> Login</h1>
             <div className="field" >
                 <div className="control">
@@ -62,7 +61,8 @@ const Login= ({ history }) => {
                 <div className="notification is-danger is-light login-validation">{errorMessage}</div>
             ) : ''}
             </div>
-        </Container>
+            </Container >
+
     )
 }
 

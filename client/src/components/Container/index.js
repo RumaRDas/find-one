@@ -1,9 +1,8 @@
 import React from 'react';
 
-const index = (props) => {
+const Container = (props) => {
     return (
         <main className="container " {...props} />
     )
 }
-
-export default index;
+export default Container;

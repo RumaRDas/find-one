@@ -19,9 +19,10 @@ const EventPages = ({history}) => {
   }, [])
 
   const myeventsHandler = async () => {
-    setSelected("myevents")
-    const response = await API.get(`/api/dashboard/user/gradients`, { headers: { user_id } })
-    setGradients(response.data)
+    setSelected(null)
+    const response = await API.get(`/api/dashboard/user/events`, { headers: { user_id } })
+    setEvents(response.data)
+    console.log(response.data)
   }
 
 
@@ -31,8 +32,8 @@ const EventPages = ({history}) => {
   }
 
   const getEvents = async (filter) => {
-    const url = filter ? `/event/${filter}` : `/eventpage`
-    const response = await api.get(url, { headers: { user_id } })
+    const url = filter ? `/categories/${filter}` : `/eventpage`
+    const response = await API.get(url, { headers: { user_id } })
     setEvents(response.data)
   }
 
@@ -54,7 +55,7 @@ const EventPages = ({history}) => {
           {
             events.map(event => (
               <li key={event._id}>
-                <header style={{ backgroundImage: `url(${gradient.thumbnail_url})` }} className="deletBtn">
+                <header style={{ backgroundImage: `url(${event.thumbnail_url})` }} className="deletBtn">
                   {
                   event.user === user_id ?
                       <div>
@@ -64,9 +65,9 @@ const EventPages = ({history}) => {
                   }
                 </header>
                 <strong>{event.title}</strong>
-                <span>Gradient Date: {moment(event.date).format('MMMM Do YYYY')}</span>
-                <span> Gradient Top:{event.color}</span>
-                <span> gradient price: {parseFloat(event.price).toFixed(2)}</span>
+                <span>Event Date: {moment(event.date).format('MMMM Do YYYY')}</span>
+                <span>Event categories:{event.categories}</span>
+                <span> gradient Cost: {parseFloat(event.Cost).toFixed(2)}</span>
                 <span>{event.description}</span>
                 <button className="button is-small is-dark ">Subscribe</button>
 

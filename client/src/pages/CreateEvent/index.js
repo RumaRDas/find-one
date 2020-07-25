@@ -43,11 +43,11 @@ const CreateEvent = ({history}) => {
             description !== ''
         ) {
             console.log("Event has been sent")
-                await API.post("/api/event", eventData, { headers: { user_id } })
+                await API.post("./api/event", eventData, { headers: { user_id } })
                 SetSuccess(true)
                 setTimeout(() => {
                     SetSuccess(false)
-                    history.push("/eventpages")
+                    history.push("/eventpage")
                 }, 2000)
                 // console.log(eventData);
                 // console.log("Event has been saved")

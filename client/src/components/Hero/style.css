@@ -1,0 +1,13 @@
+.logo{
+    font-size: 45px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    font-weight: bolder;
+    color:white
+
+}
+.heroBack{
+background-color: rgb(82, 161, 155);
+}

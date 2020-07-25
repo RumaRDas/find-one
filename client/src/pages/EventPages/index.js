@@ -18,21 +18,38 @@ const EventPages = ({history}) => {
 
   }, [])
 
-  const myeventsHandler = async () => {
-    setSelected(null)
-    const response = await API.get(`/api/dashboard/user/events`, { headers: { user_id } })
-    setEvents(response.data)
-    console.log(response.data)
-  }
-
-
   const filterHandler = (query) => {
     setSelected(query)
     getEvents(query)
   }
 
+
+  const myeventsHandler = async () => {
+    setSelected("myevents")
+    const response = await API.get(`./api/dashboard/user/events`, { headers: { user_id } })
+    setEvents(response.data)
+    console.log(response.data)
+  }
+
+  const deleteEventHandler = async (eventId) => {
+    try {
+      const deletevent = await API.delete(`./api/event/${eventId}`)
+      SetSuccess(true)
+      setTimeout(() => {
+        SetSuccess(false)
+        filterHandler(null)
+      }, 2500)
+    } catch (error) {
+      setError(true)
+      setTimeout(() => {
+        setError(false)
+      }, 2000)
+    }
+  }
+
+
   const getEvents = async (filter) => {
-    const url = filter ? `/categories/${filter}` : `/eventpage`
+    const url = filter ? `./api/dashboard/categories/${filter}` : `/api/dashboard`
     const response = await API.get(url, { headers: { user_id } })
     setEvents(response.data)
   }
@@ -48,7 +65,7 @@ const EventPages = ({history}) => {
           <button className="button is-info" onClick={() => filterHandler("blue")} active={selected === "blue"}>Blue</button>
           <button className="button is-danger" onClick={() => filterHandler("black")} active={selected === "black"}>Black</button>
         </div>
-        <button className="button is-dark" onClick={() => history.push("/eventpage")} >Back</button>
+        <button className="button is-dark" onClick={() => history.push("/createvent")} >Back</button>
       </div>
       <div>
         <ul className="gradient-list">
@@ -59,7 +76,7 @@ const EventPages = ({history}) => {
                   {
                   event.user === user_id ?
                       <div>
-                        <button className="button is-danger is small" >Delete</button>
+                        <button className="button is-danger is small"  onClick={() => deleteEventHandler(event._id)} >Delete</button>
                       </div>
                       : ""
                   }

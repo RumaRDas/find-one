@@ -52,18 +52,18 @@ const CreateEvent = ({history}) => {
                 // console.log(eventData);
                 // console.log("Event has been saved")
             } else {
-                setErrorMessage(true)
+                setError(true)
                 setTimeout(() => {
-                    setErrorMessage(false)
+                    setError(false)
                 }, 2000)
               //  console.log("Missing required Data")
             }
         } catch (error) {
             Promise.reject(error);
             console.log(error.message);
-            }
-       
+            }      
     }
+    
     const CatagoryEventHandler = (categories) => {
         setCategories(categories)
     }

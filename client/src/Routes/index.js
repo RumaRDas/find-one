@@ -5,6 +5,7 @@ import Dashboard from '../pages/Dashboard';
 import EventPages from '../pages/EventPages';
 import Registration from '../pages/Registration';
 import CreateEvent from '../pages/CreateEvent';
+import DashboardEvents from '../pages/DashboardEvents';
 import Navbar from '../components/Navbar';
 
 
@@ -18,6 +19,7 @@ const index = () => {
                 <Route path='/registration' component={Registration} />
                 <Route path='/eventpage' component={EventPages} />
                 <Route path='/navbar' component={Navbar} />
+                <Route path='/dashboardevents' component={DashboardEvents} />
                 <Route path ='/' exact component = {Dashboard} />
             </Switch>
   

@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Container from '../../components/Container';
 import API from '../../services/API';
 import EventCard from './EventCard';
+import cameraIcon from '../../assets/image/camera.png'
 import moment from 'moment';
 import './style.css';
+import CreateEvent from '../CreateEvent';
 
 const DashboardEvents = ({ history }) => {
 
@@ -67,18 +69,22 @@ const DashboardEvents = ({ history }) => {
         </div>
         <button className="button is-dark" onClick={() => history.push("/createvent")} >Back</button>
       </div>
+      <div className="columns">
+      <div className="column is-9">
+        <div className="columns is-multiline">
+          {
+            events.map(event => (
+              <EventCard key={event._id} event={event} deleteEventHandler={deleteEventHandler} />
+            )
+            )
+          }
+        </div>
+        </div>
+        <div className="column is-3 rightBack">
+        <CreateEvent />
+</div>
 
-      <div className="columns is-multiline">
-        {
-          events.map(event => (
-            <EventCard key={event._id} event={event} />
-          )
-          )
-        }
       </div>
-
-
-   
     </>
 
   )

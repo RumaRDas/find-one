@@ -47,7 +47,6 @@ const CreateEvent = ({history}) => {
                 SetSuccess(true)
                 setTimeout(() => {
                     SetSuccess(false)
-                    history.push("/eventpage")
                 }, 2000)
                 // console.log(eventData);
                 // console.log("Event has been saved")
@@ -72,7 +71,7 @@ const CreateEvent = ({history}) => {
     
     return (
 
-        <Container>
+        <Container className="back">
             <div>
                 <h1 className="eveHeader"> Create Your Event</h1>
                 <div className="formAli">

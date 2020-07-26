@@ -42,12 +42,12 @@ const Login= ({ history }) => {
             <h1 className="logHeader"> Login</h1>
             <div className="field" >
                 <div className="control">
-                    <input className="input is-danger" type="email" placeholder="Your email" name="email" id="email" onChange={evt => setEmail(evt.target.value)} />
+                    <input className="input is-success" type="email" placeholder="Your email" name="email" id="email" onChange={evt => setEmail(evt.target.value)} />
                 </div>
             </div>
             <div className="field">
                 <div className="control">
-                    <input className="input is-info" type="password" name="password" id="password" placeholder="Password" onChange={evt => setPassword(evt.target.value)} />
+                    <input className="input is-warning" type="password" name="password" id="password" placeholder="Password" onChange={evt => setPassword(evt.target.value)} />
                 </div>
             </div>
           
@@ -58,7 +58,7 @@ const Login= ({ history }) => {
                     <button className="login-btn" onClick={() => history.push('/registration')}>Register</button>
                 </div>
             {error ? (
-                <div className="notification is-danger is-light login-validation">{errorMessage}</div>
+                <div className="notification is-warning is-light login-validation">{errorMessage}</div>
             ) : ''}
             </div>
             </Container >

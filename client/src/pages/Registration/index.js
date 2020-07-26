@@ -58,7 +58,7 @@ function Registration({history}) {
                 <p>Please <strong>Register</strong> for a new account</p>
                 <div className="field" >
                     <div className="control">
-                        <input className="input is-danger" type="text" placeholder="First Name" name="firstName" id="firstName" onChange={evt => setFirstName(evt.target.value)} />
+                        <input className="input is-warning" type="text" placeholder="First Name" name="firstName" id="firstName" onChange={evt => setFirstName(evt.target.value)} />
                     </div>
                 </div>
                 <div className="field" >
@@ -68,7 +68,7 @@ function Registration({history}) {
                 </div>
                 <div className="field" >
                     <div className="control">
-                        <input className="input is-danger" type="email" placeholder="Your email" name="email" id="email" onChange={evt => setEmail(evt.target.value)} />
+                        <input className="input is-warning" type="email" placeholder="Your email" name="email" id="email" onChange={evt => setEmail(evt.target.value)} />
                     </div>
                 </div>
                 <div className="field">

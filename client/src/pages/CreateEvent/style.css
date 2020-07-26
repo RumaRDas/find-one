@@ -35,3 +35,11 @@ label#thumbnail.has-thumbnail img{
     .event-validation {
         margin-top: 12px;
     }
+
+.back{
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}

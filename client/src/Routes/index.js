@@ -7,6 +7,7 @@ import Registration from '../pages/Registration';
 import CreateEvent from '../pages/CreateEvent';
 import DashboardEvents from '../pages/DashboardEvents';
 import Navbar from '../components/Navbar';
+import EventCard from '../pages/DashboardEvents/EventCard';
 
 
 const index = () => {
@@ -18,9 +19,11 @@ const index = () => {
                 <Route path = '/createvent' component = {CreateEvent}/>
                 <Route path='/registration' component={Registration} />
                 <Route path='/eventpage' component={EventPages} />
+                <Route path ='/eventcard'eventcards component ={EventCard}/>
                 <Route path='/navbar' component={Navbar} />
                 <Route path='/dashboardevents' component={DashboardEvents} />
                 <Route path ='/' exact component = {Dashboard} />
+               
             </Switch>
   
     )

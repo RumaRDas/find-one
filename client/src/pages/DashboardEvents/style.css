@@ -1,9 +1,11 @@
 .card .card-image{
-    max-width: 100%;
-    max-height: 100%
+    max-width:80%;
+    max-height: 80%;
+    padding-top: 10px;
+    padding-left: 13%;
+
 }
 .card .card-image .image img {
-   
     display: inline-block;
   vertical-align: middle;
     background-repeat: no-repeat;
@@ -11,9 +13,11 @@
    background-size: cover;
 }
 .h3{
-    color: saddlebrown;
+color: saddlebrown;
   font-size: 25px;
   font-weight: bold;
+  text-align: center;
+  padding-bottom:0 ;
 
 }
 .eventText{
@@ -22,4 +26,28 @@
 .cardBack{
     background-color: rgb(163, 166, 168);
 
+}
+.rightBack{
+    background-color: rgb(170, 186, 202);
+    margin: 10px;
+}
+.dateStyle{
+    text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: rgb(160, 46, 46);
+}
+.deletButton{
+  height: 25px;
+  width: 55px;
+  background-color:rgb(160, 46, 46);
+  color: white;
+  font-size: 12px;
+  float: right;
+  margin-bottom: 20px;
+}
+.rightMr{
+ margin-bottom: 10px;
+ padding-bottom: 10px;
+ margin-top: 10px;
 }

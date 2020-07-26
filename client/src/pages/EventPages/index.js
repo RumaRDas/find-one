@@ -72,7 +72,7 @@ const EventPages = ({history}) => {
           {
             events.map(event => (
               <li key={event._id}>
-                <header style={{ backgroundImage: `url(${event.thumbnail_url})` }} className="deletBtn">
+                <header style={{ backgroundImage: `url(${event.thumbnail_url})` }}>
                   {
                   event.user === user_id ?
                       <div>

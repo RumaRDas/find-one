@@ -64,7 +64,7 @@ const DashboardEvents = ({ history }) => {
           <button className="button is-success is-outlined" onClick={() => filterHandler(null)} active={selected === null}>ALL Categories</button>
           <button className="button is-danger is-outlined" onClick={myeventsHandler} active={selected === "myevents"}>My Event</button>
           <button className="button is-success is-outlined" onClick={() => filterHandler("kids")} active={selected === "kids"}>Kids</button>
-          <button className="button is-info is-outlined" onClick={() => filterHandler("audalt")} active={selected === "audalt"}>Audalt</button>
+          <button className="button is-info is-outlined" onClick={() => filterHandler("audalt")} active={selected === "adult"}>Adult</button>
           <button className="button is-danger is-outlined" onClick={() => filterHandler("Indoor")} active={selected === "indoor"}>Indoor</button>
           <button className="button is-warning is-outlined" onClick={() => filterHandler("outdoor")} active={selected === "outdoor"}>Outdoor</button>
         </div>

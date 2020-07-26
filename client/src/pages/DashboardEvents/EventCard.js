@@ -25,7 +25,7 @@ function EventCard(props) {
             <div className="eventText">
               <span ><strong>Event categories:</strong> {props.event.categories}</span>
               <br></br>
-              <span > <strong> Entry Fee:</strong> {parseFloat(props.event.Cost).toFixed(2)}</span>
+              <span > <strong> Entry Fee:</strong> {parseFloat(props.event.cost).toFixed(2)}</span>
               <br></br>
               <div className='wordWrap'><span>{props.event.description}</span></div>
             </div>

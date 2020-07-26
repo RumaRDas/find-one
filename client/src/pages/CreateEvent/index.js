@@ -12,7 +12,7 @@ const CreateEvent = ({history}) => {
     const [description, setDescription] = useState("");
     const [cost, setCost] = useState("");
     const [date, setDate] = useState("");
-    const [categories, setCategories] = useState("")
+    const [categories, setCategories] = useState("Kids")
     const [thumbnail, setThumbnail] = useState(null);
     const [error, setError] = useState(false)
     const [errorMessage, setErrorMessage] = useState(false);
@@ -85,16 +85,16 @@ const CreateEvent = ({history}) => {
                         </label>
                     </div>
                     <div className="field">
-                        <label className="label">Color</label>
+                        <label className="label">Categories</label>
                         <div className="control columns is-gapless">
                             <div className="column is-four-fifths">
                                 <input className="input" id="Categories" type="text" placeholder={'Categories Name'} value={categories} onChange={evt => setCategories(evt.target.value)} />
                             </div>
                             <div className="column">
                                 <Dropdown trigger="Choose">
-                                    <a className="navbar-item" onClick={() => CatagoryEventHandler('red')}>  Red</a>
-                                    <a className="navbar-item" onClick={() => CatagoryEventHandler('blue')}>  Blue</a>
-                                    <a className="navbar-item" onClick={() => CatagoryEventHandler('black')}> Black </a>
+                                    <a className="navbar-item" onClick={() => CatagoryEventHandler('adult')}>  Adult</a>
+                                    <a className="navbar-item" onClick={() => CatagoryEventHandler('indoor')}>  Indoor</a>
+                                    <a className="navbar-item" onClick={() => CatagoryEventHandler('outdoor')}> Outdoor </a>
                                 </Dropdown>
                             </div>
 

@@ -33,7 +33,7 @@ function Navbar() {
         >
           <div className="navbar-start">
           <Link className="navbar-item" to="/"> Home </Link>
-        <Link className="navbar-item" to='/eventpage'> Event</Link>
+        <Link className="navbar-item" to='/dashboardevents'> Event</Link>
         <Link className="navbar-item" to="#">Images</Link>
         <Link className="navbar-item" to="#"> About Us</Link>
           </div>

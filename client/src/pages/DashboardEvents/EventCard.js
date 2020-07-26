@@ -5,7 +5,7 @@ function EventCard(props) {
   const user_id = localStorage.getItem('user');
   return (
 
-    <div className="column is-4 " >
+    <div className="column is-4-desktop " >
       <div className="box cardBack">
         <div className="card ">
           <div className="card-image">
@@ -27,7 +27,7 @@ function EventCard(props) {
               <br></br>
               <span >gradient Cost: {parseFloat(props.event.Cost).toFixed(2)}</span>
               <br></br>
-              <span>{props.event.description}</span>
+              <div className='wordWrap'><span>{props.event.description}</span></div>
             </div>
             <div>
             {

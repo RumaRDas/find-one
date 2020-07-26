@@ -13,19 +13,25 @@
    background-size: cover;
 }
 .h3{
-color: saddlebrown;
+color: rgb(255, 200, 50);
   font-size: 25px;
   font-weight: bold;
   text-align: center;
   padding-bottom:0 ;
 
 }
+
 .eventText{
     padding: 0;
 }
+.card{
+  min-height: 450px;
+  max-height: 450px;
+}
 .cardBack{
     background-color: rgb(163, 166, 168);
-
+    min-height: 500px;
+    max-height: 500px;
 }
 .rightBack{
     background-color: rgb(170, 186, 202);
@@ -35,13 +41,13 @@ color: saddlebrown;
     text-align: center;
   font-size: 25px;
   font-weight: bold;
-  color: rgb(160, 46, 46);
+  color: rgb(255, 200, 50);
 }
 .deletButton{
   height: 25px;
   width: 55px;
-  background-color:rgb(160, 46, 46);
-  color: white;
+  background-color:rgb(236, 197, 87);
+  color: rgb(37, 34, 34);
   font-size: 12px;
   float: right;
   margin-bottom: 20px;
@@ -50,4 +56,19 @@ color: saddlebrown;
  margin-bottom: 10px;
  padding-bottom: 10px;
  margin-top: 10px;
+}
+.wordWrap{
+  word-wrap: break-word;
+}
+
+@media only screen and (device-width: 768px) {
+  /* For general iPad layouts */
+  .card{
+    min-height:100%;
+    max-height: 100%;
+  }
+  .cardBack{
+    min-height:100%;
+    max-height: 100%;
+}
 }

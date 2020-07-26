@@ -59,15 +59,15 @@ const DashboardEvents = ({ history }) => {
   return (
 
     <>
-      <div className="filter-panel">
+      <div className="filter-panel buttonpad">
         <div className="buttons field has-addons ">
-          <button className="button is-warning" onClick={() => filterHandler(null)} active={selected === null}>ALL Categories</button>
-          <button className="button is-danger" onClick={myeventsHandler} active={selected === "myevents"}>My Event</button>
-          <button className="button is-success" onClick={() => filterHandler("red")} active={selected === "red"}>Red</button>
-          <button className="button is-info" onClick={() => filterHandler("blue")} active={selected === "blue"}>Blue</button>
-          <button className="button is-danger" onClick={() => filterHandler("black")} active={selected === "black"}>Black</button>
+          <button className="button is-success is-outlined" onClick={() => filterHandler(null)} active={selected === null}>ALL Categories</button>
+          <button className="button is-danger is-outlined" onClick={myeventsHandler} active={selected === "myevents"}>My Event</button>
+          <button className="button is-success is-outlined" onClick={() => filterHandler("kids")} active={selected === "kids"}>Kids</button>
+          <button className="button is-info is-outlined" onClick={() => filterHandler("audalt")} active={selected === "audalt"}>Audalt</button>
+          <button className="button is-danger is-outlined" onClick={() => filterHandler("Indoor")} active={selected === "indoor"}>Indoor</button>
+          <button className="button is-warning is-outlined" onClick={() => filterHandler("outdoor")} active={selected === "outdoor"}>Outdoor</button>
         </div>
-        <button className="button is-dark" onClick={() => history.push("/createvent")} >Back</button>
       </div>
       <div className="columns">
       <div className="column is-9">

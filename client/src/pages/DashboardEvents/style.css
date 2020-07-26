@@ -20,18 +20,27 @@ color: rgb(255, 200, 50);
   padding-bottom:0 ;
 
 }
-
+.box{
+  height: 100%;
+}
 .eventText{
     padding: 0;
 }
+.card-equal-height {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+.card-equal-height .card-footer {
+ margin-top: auto;
+}
 .card{
-  min-height: 450px;
-  max-height: 450px;
+ border-radius: 0.5rem;
 }
 .cardBack{
-    background-color: rgb(163, 166, 168);
-    min-height: 500px;
-    max-height: 500px;
+    background-color: rgb(250, 243, 211);
+    min-height: 100%;
+    max-height: 100%
 }
 .rightBack{
     background-color: rgb(170, 186, 202);
@@ -51,6 +60,8 @@ color: rgb(255, 200, 50);
   font-size: 12px;
   float: right;
   margin-bottom: 20px;
+  margin-right: 10px;
+  margin-left: 20px;
 }
 .rightMr{
  margin-bottom: 10px;
@@ -60,7 +71,10 @@ color: rgb(255, 200, 50);
 .wordWrap{
   word-wrap: break-word;
 }
-
+ .buttonpad{
+   padding-bottom: 10px;
+   margin-bottom: ;
+ }
 @media only screen and (device-width: 768px) {
   /* For general iPad layouts */
   .card{

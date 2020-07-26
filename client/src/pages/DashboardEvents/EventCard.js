@@ -7,7 +7,7 @@ function EventCard(props) {
 
     <div className="column is-4-desktop " >
       <div className="box cardBack">
-        <div className="card ">
+        <div className="card card-equal-height group box ">
           <div className="card-image">
             <figure className="image is-4by3 imgStyle">
               <img style={{ backgroundImage: `url(${props.event.thumbnail_url})` }} className="deletBtn" />
@@ -23,24 +23,22 @@ function EventCard(props) {
             </div>
 
             <div className="eventText">
-              <span >Event categories:{props.event.categories}</span>
+              <span ><strong>Event categories:</strong> {props.event.categories}</span>
               <br></br>
-              <span >gradient Cost: {parseFloat(props.event.Cost).toFixed(2)}</span>
+              <span > <strong> Entry Fee:</strong> {parseFloat(props.event.Cost).toFixed(2)}</span>
               <br></br>
               <div className='wordWrap'><span>{props.event.description}</span></div>
             </div>
-            <div>
-            {
-              props.event.user === user_id ?
-                <div className="rightMr">
-                  <button className="button deletButton" onClick={() => props.deleteEventHandler(props.event._id)} >Delete</button>
-                </div>
-                : ""
-            }
-            </div>
           </div>
-         
-
+          <div className="card-footer" >  
+          {
+            props.event.user === user_id ?
+              <div className="rightMr">
+                <button className="button deletButton" onClick={() => props.deleteEventHandler(props.event._id)} >Delete</button>
+              </div>
+              : ""
+          }
+        </div>
         </div>
       </div>
 

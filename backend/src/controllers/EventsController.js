@@ -16,7 +16,7 @@ module.exports = {
             const event = await db.Event.create({
                 title,
                 description,
-                cost:parseFloat(cost),
+                cost: parseFloat(cost),
                 categories,
                 date,
                 user: user_id,

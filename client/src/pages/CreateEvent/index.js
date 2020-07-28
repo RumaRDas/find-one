@@ -51,8 +51,8 @@ const CreateEvent = ({ history }) => {
                 SetSuccess(true)
                 setTimeout(() => {
                     SetSuccess(false)
-                    history.push("/dashboardevents")
                 }, 2000)
+     
             }
             else {
                 setError(true)

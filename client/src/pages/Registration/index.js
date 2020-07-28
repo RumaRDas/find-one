@@ -3,7 +3,7 @@ import Container from '../../components/Container'
 import API from '../../services/API'
 import './style.css';
 
-function Registration({history}) {
+function Registration({ history }) {
 
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -21,9 +21,12 @@ function Registration({history}) {
                 firstName !== '' &&
                 lastName !== '') {
                 const response = await API.post('./api/users', { firstName, lastName, email, password })
-                const userId = response.data._id || false;
-                if (userId) {
-                    localStorage.setItem('user', userId)
+                // const userId = response.data._id || false;
+                const user = response.data.user || false;
+                const user_id = response.data.user_id || false;
+                if (user && user_id) {
+                    localStorage.setItem('user', user)
+                    localStorage.setItem('user_id', user_id)
                     history.push('/dashboard')
                 } else {
                     const { message } = response.data
@@ -35,15 +38,15 @@ function Registration({history}) {
                     }, 2000)
                 }
             }
-            else{
+            else {
                 setError(true)
                 setErrorMessage("You need to fill all the input")
                 setTimeout(() => {
                     setError(false)
                     setErrorMessage("")
                 }, 2000)
-         
-                }
+
+            }
 
         } catch (error) {
             Promise.reject(error);

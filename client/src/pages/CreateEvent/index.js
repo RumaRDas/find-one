@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Container from '../../components/Container';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 import cameraIcon from '../../assets/image/camera.png'
@@ -6,17 +6,19 @@ import { Dropdown } from 'react-bulma-components';
 import API from '../../services/API';
 import './style.css';
 
-const CreateEvent = ({history}) => {
+const CreateEvent = ({ history }) => {
 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [cost, setCost] = useState("");
     const [date, setDate] = useState("");
-    const [categories, setCategories] = useState("Kids")
+    const [categories, setCategories] = useState("")
     const [thumbnail, setThumbnail] = useState(null);
     const [error, setError] = useState(false)
     const [errorMessage, setErrorMessage] = useState(false);
     const [success, SetSuccess] = useState(false);
+    const [event, setEvent] = useState();
+    const user_id = localStorage.getItem('user');
 
     const preview = useMemo(() => {
         return thumbnail ? URL.createObjectURL(thumbnail) : null;
@@ -24,51 +26,54 @@ const CreateEvent = ({history}) => {
 
     const submitHandler = async (evt) => {
         evt.preventDefault();
-        const user_id = localStorage.getItem('user');
-        // console.log(title,description, cost, categories,date)
+        const user = localStorage.getItem('user');
+
         const eventData = new FormData();
+
         eventData.append('thumbnail', thumbnail)
         eventData.append('categories', categories)
         eventData.append('title', title)
         eventData.append('cost', cost)
         eventData.append('description', description)
         eventData.append('date', date)
+
         try {
             if (
-            title !== '' &&
-            categories !== '' &&
-            cost !== "" &&
-            date !== "" &&
-            thumbnail !== null &&
-            description !== ''
-        ) {
-            console.log("Event has been sent")
-                await API.post("./api/event", eventData, { headers: { user_id } })
+                title !== '' &&
+                categories !== '' &&
+                cost !== "" &&
+                date !== "" &&
+                thumbnail !== null &&
+                description !== ''
+            ) {
+                await API.post("./api/event", eventData, { headers: { user} });
+                //      setEvent(response.eventData);
                 SetSuccess(true)
                 setTimeout(() => {
                     SetSuccess(false)
+                    history.push("/dashboardevents")
                 }, 2000)
-                // console.log(eventData);
-                // console.log("Event has been saved")
-            } else {
+            }
+            else {
                 setError(true)
                 setTimeout(() => {
                     setError(false)
                 }, 2000)
-              //  console.log("Missing required Data")
+                //  console.log("Missing required Data")
             }
         } catch (error) {
             Promise.reject(error);
             console.log(error.message);
-            }      
+
+        }
     }
-    
+
     const CatagoryEventHandler = (categories) => {
         setCategories(categories)
     }
     console.log(categories)
 
-    
+
     return (
 
         <Container className="back">
@@ -92,6 +97,7 @@ const CreateEvent = ({history}) => {
                             </div>
                             <div className="column">
                                 <Dropdown trigger="Choose">
+                                    <a className="navbar-item" onClick={() => CatagoryEventHandler('kids')}>  Kids</a>
                                     <a className="navbar-item" onClick={() => CatagoryEventHandler('adult')}>  Adult</a>
                                     <a className="navbar-item" onClick={() => CatagoryEventHandler('indoor')}>  Indoor</a>
                                     <a className="navbar-item" onClick={() => CatagoryEventHandler('outdoor')}> Outdoor </a>
@@ -99,49 +105,49 @@ const CreateEvent = ({history}) => {
                             </div>
 
                         </div>
-                </div>
-                <div className="field">
-                    <label className="label">Event Name</label>
-                    <div className="control">
-                        <input className="input" id="title" type="text" placeholder={'Event Title'} value={title} onChange={evt => setTitle(evt.target.value)} />
                     </div>
-                </div>
-
-                <div className="field">
-                    <label className="label">Cost</label>
-                    <div className="control">
-                        <input className="input is-success" type="Number" placeholder={' Event price $0.00'} value={cost} id="cost" onChange={evt => setCost(evt.target.value)} />
+                    <div className="field">
+                        <label className="label">Event Name</label>
+                        <div className="control">
+                            <input className="input" id="title" type="text" placeholder={'Event Title'} value={title} onChange={evt => setTitle(evt.target.value)} />
+                        </div>
                     </div>
-                </div>
 
-                <div className="field">
-                    <label className="label">Date</label>
-                    <div className="control">
-                        <input className="input is-success" type="date" placeholder={' Event Date'} value={date} id="date" onChange={evt => setDate(evt.target.value)} />
+                    <div className="field">
+                        <label className="label">Cost</label>
+                        <div className="control">
+                            <input className="input is-success" type="Number" placeholder={' Event price $0.00'} value={cost} id="cost" onChange={evt => setCost(evt.target.value)} />
+                        </div>
                     </div>
-                </div>
 
-                <div className="field">
-                    <label className="label">Description</label>
-                    <div className="control">
-                        <textarea className="textarea" placeholder={'Event description'} value={description} id="description" onChange={evt => setDescription(evt.target.value)}></textarea>
+                    <div className="field">
+                        <label className="label">Date</label>
+                        <div className="control">
+                            <input className="input is-success" type="date" placeholder={' Event Date'} value={date} id="date" onChange={evt => setDate(evt.target.value)} />
+                        </div>
                     </div>
-                </div>
-                <div className="control">
-                    <button className="submit-btn" onClick={submitHandler}>Create Event</button>
-                </div>
-                <div className="control">
-                    <button className="login-btn" onClick={() => history.push('/enentpages')}>Cancel</button>
-        
-                </div>
 
-                {error ? (
-                    <div className="notification is-danger is-light event-validation"> Missing require information</div>
-                ) : ''}
-                {success ? (
-                    <div className="notification is-success is-light event-validation"> Event was Created successfuly</div>
-                ) : ''}
-            </div>
+                    <div className="field">
+                        <label className="label">Description</label>
+                        <div className="control">
+                            <textarea className="textarea" placeholder={'Event description'} value={description} id="description" onChange={evt => setDescription(evt.target.value)}></textarea>
+                        </div>
+                    </div>
+                    <div className="control">
+                        <button className="submit-btn" onClick={submitHandler}>Create Event</button>
+                    </div>
+                    <div className="control">
+                        <button className="login-btn" onClick={'/login'}>Cancel</button>
+
+                    </div>
+
+                    {error ? (
+                        <div className="notification is-danger is-light event-validation"> Missing require information</div>
+                    ) : ''}
+                    {success ? (
+                        <div className="notification is-success is-light event-validation"> Event was Created successfuly</div>
+                    ) : ''}
+                </div>
             </div>
 
         </Container >

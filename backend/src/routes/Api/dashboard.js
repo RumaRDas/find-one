@@ -1,10 +1,11 @@
 const router = require("express").Router();
 const DashboardController = require('../../controllers/DashboardController');
+const verifyToken = require('../../config/verifyToken');
 
-router.get('/', DashboardController.getAllEvents)
-router.get('/:eventId', DashboardController.getEventtById)
-router.get('/categories/:categories', DashboardController.getCateEvents)
-router.get('/user/events', DashboardController.getCatetEventbyUseuId)
 
+router.get('/:eventId',verifyToken, DashboardController.getEventtById)
+router.get('/categories/:categories',verifyToken, DashboardController.getAllEvents)
+router.get('/user/events',verifyToken, DashboardController.getCatetEventbyUseuId)
+router.get('/',verifyToken, DashboardController.getAllEvents)
 
 module.exports = router;

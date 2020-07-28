@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect }  from 'react';
+import API from '../../services/API';
 import moment from 'moment';
+import { Link } from "react-router-dom";
 
 function EventCard(props) {
-  const user_id = localStorage.getItem('user');
+  const user_id = localStorage.getItem('user_id');
+  const user = localStorage.getItem('user');
+
   return (
 
-    <div className="column is-4-desktop " >
+    <div className="column is-6-desktop " >
       <div className="box cardBack">
         <div className="card card-equal-height group box ">
           <div className="card-image">
@@ -36,8 +40,10 @@ function EventCard(props) {
               <div className="rightMr">
                 <button className="button deletButton" onClick={() => props.deleteEventHandler(props.event._id)} >Delete</button>
               </div>
+  
               : ""
           }
+
         </div>
         </div>
       </div>

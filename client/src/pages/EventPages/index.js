@@ -10,8 +10,9 @@ const EventPages = ({history}) => {
     const [selected, setSelected] = useState(null);
     const [error, setError] = useState(false)
     const [success, SetSuccess] = useState(false);
-    const user_id = localStorage.getItem('user');
-
+    const user = localStorage.getItem('user');
+    const user_id = localStorage.getItem('user_id');
+  
       //  console.log(user_id)
   useEffect(() => {
     getEvents()
@@ -26,14 +27,13 @@ const EventPages = ({history}) => {
 
   const myeventsHandler = async () => {
     setSelected("myevents")
-    const response = await API.get(`./api/dashboard/user/events`, { headers: { user_id } })
-    setEvents(response.data)
-    console.log(response.data)
+    const response = await API.get(`./api/dashboard/user/events`, { headers: { user: user } })
+    setEvents(response.data.events)
   }
 
   const deleteEventHandler = async (eventId) => {
     try {
-      const deletevent = await API.delete(`./api/event/${eventId}`)
+     await API.delete(`./api/event/${eventId}`,{headers: {user: user}})
       SetSuccess(true)
       setTimeout(() => {
         SetSuccess(false)
@@ -49,9 +49,15 @@ const EventPages = ({history}) => {
 
 
   const getEvents = async (filter) => {
-    const url = filter ? `./api/dashboard/categories/${filter}` : `/api/dashboard`
-    const response = await API.get(url, { headers: { user_id } })
-    setEvents(response.data)
+    try{
+      const url = filter ? `./api/dashboard/categories/${filter}` : `/api/dashboard`
+      const response = await API.get(url, { headers: { user: user } })
+      setEvents(response.data.events)
+      console.log(`thereIs no data : ${response.data.events}`)
+    }catch(error){
+      history.push('/');
+    }
+ 
   }
 
     return (
@@ -72,7 +78,7 @@ const EventPages = ({history}) => {
           {
             events.map(event => (
               <li key={event._id}>
-                <header style={{ backgroundImage: `url(${event.thumbnail_url})` }}>
+                <header style={{ backgroundImage: `url(${event.thumbnail_url})` }} className="deletBtn">
                   {
                   event.user === user_id ?
                       <div>

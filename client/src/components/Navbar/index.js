@@ -4,8 +4,21 @@ import Container1 from '../Container1'
 
 import './style.css'
 
-function Navbar() {
+function Navbar({history}) {
+  const user_id = localStorage.getItem('user');
   const [isActive, setisActive] = React.useState(false);
+  
+  const logOut=(user, user_id)=>{
+    try{
+      localStorage.removeItem('user')
+    
+      history.push('/')
+
+    }catch(error){
+
+    }
+
+  }
   
   return (
     <div className="navStyle">
@@ -32,7 +45,7 @@ function Navbar() {
           className={`navbar-menu ${isActive ? "is-active" : ""}`}
         >
           <div className="navbar-start">
-          <Link className="navbar-item" to="/"> Home </Link>
+          <Link className="navbar-item" to="/dashboard"> Home </Link>
         <Link className="navbar-item" to='/dashboardevents'> Event</Link>
         <Link className="navbar-item" to="#">Images</Link>
         <Link className="navbar-item" to="#"> About Us</Link>
@@ -41,9 +54,11 @@ function Navbar() {
           <div className="navbar-item">
             <div className="buttons">
               <Link className="button purple-btn" to="/registration">Sign up</Link>
-              <Link className="button pink-btn" to="/login">
-                Log in
-             </Link>
+              { (localStorage.getItem('user') === user_id) ? (<Link className="button pink-btn" to="/">Log in</Link>)
+
+              : (<Link className="button pink-btn" onClick={logOut} to="/" >Logout</Link>)
+
+              }
             </div>
           </div>
         </div>

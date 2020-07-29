@@ -1,0 +1,9 @@
+.footerstyle{
+background-color: rgb(253, 202, 36);
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+color: white;
+text-align: center;
+}

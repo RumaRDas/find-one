@@ -8,6 +8,7 @@ import CreateEvent from '../pages/CreateEvent';
 import DashboardEvents from '../pages/DashboardEvents';
 import ViewEvents from '../pages/ViewEvents';
 import EventCard from '../pages/DashboardEvents/EventCard';
+import AboutUs from '../pages/AboutUs';
 import  Registration from '../pages/Registration';
 const index = () => {
     return (
@@ -21,6 +22,7 @@ const index = () => {
                 <Route path ='/eventcard'eventcards component ={EventCard}/>
                 <Route path='/viewevent/:id' component={ViewEvents} />
                 <Route path='/dashboardevents' component={DashboardEvents} />
+                <Route path = '/aboutus' component={AboutUs}/>
                 <Route path ='/' exact component = {Login} />              
             </Switch>
 

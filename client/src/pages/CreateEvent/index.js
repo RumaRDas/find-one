@@ -1,7 +1,8 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import Container from '../../components/Container';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
-import cameraIcon from '../../assets/image/camera.png'
+import cameraIcon from '../../assets/image/camera.png';
+import { Link, Redirect} from 'react-router-dom';
 import { Dropdown } from 'react-bulma-components';
 import API from '../../services/API';
 import './style.css';
@@ -18,7 +19,8 @@ const CreateEvent = ({ history }) => {
     const [errorMessage, setErrorMessage] = useState(false);
     const [success, SetSuccess] = useState(false);
     const [event, setEvent] = useState();
-    const user_id = localStorage.getItem('user');
+    const user = localStorage.getItem('user');
+
 
     const preview = useMemo(() => {
         return thumbnail ? URL.createObjectURL(thumbnail) : null;
@@ -26,7 +28,6 @@ const CreateEvent = ({ history }) => {
 
     const submitHandler = async (evt) => {
         evt.preventDefault();
-        const user = localStorage.getItem('user');
 
         const eventData = new FormData();
 
@@ -46,21 +47,24 @@ const CreateEvent = ({ history }) => {
                 thumbnail !== null &&
                 description !== ''
             ) {
-                await API.post("./api/event", eventData, { headers: { user} });
-                //      setEvent(response.eventData);
-                SetSuccess(true)
-                setTimeout(() => {
-                    SetSuccess(false)
-                }, 2000)
-     
+                const response = await API.post("./api/event", eventData, { headers: { user } });
+                if (response.status == 200) {
+                    console.log("Hellooooooo")
+                    setEvent(response.eventData);
+                    return <Redirect to="/dashboardevent" />
+                    SetSuccess(true)
+                    setTimeout(() => {
+                        SetSuccess(false)
+                    })
+                }
+                else {
+                    setError(true)
+                    setTimeout(() => {
+                        setError(false)
+                    })
+                }
             }
-            else {
-                setError(true)
-                setTimeout(() => {
-                    setError(false)
-                }, 2000)
-                //  console.log("Missing required Data")
-            }
+
         } catch (error) {
             Promise.reject(error);
             console.log(error.message);
@@ -71,7 +75,7 @@ const CreateEvent = ({ history }) => {
     const CatagoryEventHandler = (categories) => {
         setCategories(categories)
     }
-    console.log(categories)
+
 
 
     return (
@@ -137,7 +141,7 @@ const CreateEvent = ({ history }) => {
                         <button className="submit-btn" onClick={submitHandler}>Create Event</button>
                     </div>
                     <div className="control">
-                        <button className="login-btn" onClick={'/login'}>Cancel</button>
+                        <Link className="login-btn" to="/dashboardevents" >Cancel</Link>
 
                     </div>
 

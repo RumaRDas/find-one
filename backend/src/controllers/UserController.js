@@ -6,6 +6,7 @@ module.exports = {
 		try {
 			const { email, firstName, lastName, password } = req.body;
 			const existentUser = await db.User.findOne({ email });
+
 			if (!existentUser) {
 				const hashedPassword = await bcrypt.hash(password, 10);
 				const user = await db.User.create({
@@ -15,6 +16,7 @@ module.exports = {
 					password: hashedPassword,
 				});
 				return res.json({
+					
 					_id: user._id,
 					email: user.email,
 					firstName: user.firstName,

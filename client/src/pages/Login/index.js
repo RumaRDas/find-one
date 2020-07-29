@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Container from '../../components/Container';
+import { Link } from "react-router-dom";
 import API from '../../services/API'
 import './style.css'
 
@@ -59,7 +60,7 @@ const Login= ({ history }) => {
                     <button className="submit-btn" onClick={handleSubmit}>Sign in</button>
                 </div>
                 <div className="control">
-                    <button className="login-btn" onClick={() => history.push('/registration')}>Register</button>
+                    <Link className="login-btn" to='/registration' >Register</Link>
                 </div>
             {error ? (
                 <div className="notification is-warning is-light login-validation">{errorMessage}</div>

@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Routes from './Routes'
 import './style/App.css';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero'
+import Hero from './components/Hero';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Routes />
       </div>
     </Container>
+    <Footer/>
     </Router>
   </div>
   );

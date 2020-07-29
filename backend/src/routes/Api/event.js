@@ -7,8 +7,8 @@ const verifyToken = require('../../config/verifyToken')
 const uploadConfig = require('../../config/upload');
 const upload = multer(uploadConfig);
 
-router.post('/',verifyToken,upload.single('thumbnail'), EventsController.createEvent)
-router.delete('/:eventId',verifyToken, EventsController.delete)
+router.post('/', verifyToken, upload.single('thumbnail'), EventsController.createEvent)
+router.delete('/:eventId', verifyToken, EventsController.delete)
 
 
 module.exports = router;

@@ -39,8 +39,14 @@ function EventCard(props) {
             props.event.user === user_id ?
               <div className="rightMr">
                 <button className="button deletButton" onClick={() => props.deleteEventHandler(props.event._id)} >Delete</button>
-              </div>
-  
+              </div> 
+              : ""
+          }
+          {
+            props.event.user === user_id ?
+              <div className="rightMr">
+                <button className="button deletButton" onClick={() => props.deleteEventHandler(props.event._id)} >View</button>
+              </div> 
               : ""
           }
 

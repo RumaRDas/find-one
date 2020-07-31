@@ -12,7 +12,7 @@ const CreateEvent = () => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [cost, setCost] = useState("");
-    const [date, setDate] = useState("");
+    const [contact, setContact] = useState("");
     const [categories, setCategories] = useState("")
     const [thumbnail, setThumbnail] = useState(null);
     const [error, setError] = useState(false)
@@ -35,14 +35,14 @@ const CreateEvent = () => {
         eventData.append('title', title)
         eventData.append('cost', cost)
         eventData.append('description', description)
-        eventData.append('date', date)
+        eventData.append('contact', contact)
 
         try {
             if (
                 title !== '' &&
                 categories !== '' &&
                 cost !== "" &&
-                date !== "" &&
+                contact !== "" &&
                 thumbnail !== null &&
                 description !== ''
             ) {
@@ -70,7 +70,7 @@ const CreateEvent = () => {
 
         <Container className="back">
             <div>
-                <h1 className="eveHeader"> Create Your Event</h1>
+                <h1 className="eveHeader"> Create Your Advertise</h1>
                 <div className="formAli">
                     <div className="field">
                         <label className="label">Upload Your Image</label>
@@ -89,33 +89,33 @@ const CreateEvent = () => {
                             </div>
                             <div className="column">
                                 <Dropdown trigger="Choose">
-                                    <a className="navbar-item" onClick={() => CatagoryEventHandler('kids')}>  Kids</a>
-                                    <a className="navbar-item" onClick={() => CatagoryEventHandler('adult')}>  Adult</a>
-                                    <a className="navbar-item" onClick={() => CatagoryEventHandler('indoor')}>  Indoor</a>
-                                    <a className="navbar-item" onClick={() => CatagoryEventHandler('outdoor')}> Outdoor </a>
+                                    <a className="navbar-item" onClick={() => CatagoryEventHandler('partihire')}> Parti Hire</a>
+                                    <a className="navbar-item" onClick={() => CatagoryEventHandler('catering')}>  Catering</a>
+                                    <a className="navbar-item" onClick={() => CatagoryEventHandler('garden')}>  Garden</a>
+                                    <a className="navbar-item" onClick={() => CatagoryEventHandler('beauty')}> Beauty </a>
                                 </Dropdown>
                             </div>
 
                         </div>
                     </div>
                     <div className="field">
-                        <label className="label">Event Name</label>
+                        <label className="label">Business Name</label>
                         <div className="control">
-                            <input className="input" id="title" type="text" placeholder={'Event Title'} value={title} onChange={evt => setTitle(evt.target.value)} />
+                            <input className="input" id="title" type="text" placeholder={'Business Title'} value={title} onChange={evt => setTitle(evt.target.value)} />
                         </div>
                     </div>
 
                     <div className="field">
-                        <label className="label">Cost</label>
+                        <label className="label">Charges</label>
                         <div className="control">
-                            <input className="input is-success" type="Number" placeholder={' Event price $0.00'} value={cost} id="cost" onChange={evt => setCost(evt.target.value)} />
+                            <input className="input is-success" type="Number" placeholder={' Charges $0.00'} value={cost} id="cost" onChange={evt => setCost(evt.target.value)} />
                         </div>
                     </div>
 
                     <div className="field">
-                        <label className="label">Date</label>
+                        <label className="label">Contact No</label>
                         <div className="control">
-                            <input className="input is-success" type="date" placeholder={' Event Date'} value={date} id="date" onChange={evt => setDate(evt.target.value)} />
+                            <input className="input is-success" type="text" placeholder={'Contact No'} value={contact} id="contact" onChange={evt => setContact(evt.target.value)} />
                         </div>
                     </div>
 
@@ -126,7 +126,7 @@ const CreateEvent = () => {
                         </div>
                     </div>
                     <div className="control">
-                        <button className="submit-btn" onClick={submitHandler}>Create Event</button>
+                        <button className="submit-btn" onClick={submitHandler}>Create </button>
                     </div>
                     <div className="control">
                         <Link className="login-btn" to="/dashboardevents" >Cancel</Link>
@@ -135,7 +135,7 @@ const CreateEvent = () => {
                         <div className="notification is-danger is-light event-validation">You need to fill all the input</div>
                     ) : ''}
                     {success ? (
-                        <div className="notification is-success is-light event-validation"> Event was Created successfuly</div>
+                        <div className="notification is-success is-light event-validation"> Advertise was Created successfuly</div>
                     ) : ''}
                 </div>
             </div>

@@ -23,7 +23,7 @@ const Dashboard = () => {
                             <div className="card-content">
                                 <div className="media">
                                     <div className="media-content">
-                                        <p className="title headerStyle">Event</p>
+                                        <p className="title headerStyle">Products</p>
                                     </div>
                                 </div>
                                 <div className="content">
@@ -43,9 +43,10 @@ const Dashboard = () => {
                                         <p className="title headerStyle">Images</p>
                                     </div>
                                 </div>
+                           
                                 <div className="content">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Phasellus nec iaculis mauris.
+                                   
+                                <h3> Future Plane</h3>
                             </div>
                             </div>
                             <div className="card-image">
@@ -68,7 +69,7 @@ const Dashboard = () => {
                             <div className="card-content">
                                 <div className="media">
                                     <div className="media-content">
-                                        <p className="title headerStyle">Movie</p>
+                                        <p className="title headerStyle">Recipies</p>
                                     </div>
                                 </div>
                                 <div className="content">

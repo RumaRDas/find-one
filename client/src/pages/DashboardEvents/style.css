@@ -1,13 +1,13 @@
 .card .card-image{
-    max-width:80%;
-    max-height: 80%;
+    max-width:100%;
+    max-height: 100%;
     padding-top: 10px;
     padding-left: 13%;
 
 }
 .card .card-image .image img {
     display: inline-block;
-  vertical-align: middle;
+    vertical-align: middle;
     background-repeat: no-repeat;
    background-position: center;
    background-size: cover;
@@ -20,35 +20,24 @@ color: rgb(8, 8, 8);
   padding-bottom:0 ;
 
 }
-.box{
-  height: 100%;
-}
+
 .eventText{
-    padding: 0;
+padding-left: 30px;
+    text-align: left;
 }
-.card-equal-height {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-}
+
 .card-equal-height .card-footer {
  margin-top: auto;
 }
 .card{
  border-radius: 0.5rem;
 }
-.cardBack{
-    background-color: rgb(250, 243, 211);
-    min-height: 100%;
-    max-height: 100%;
- 
-}
+
 .rightBack{
     background-color: rgb(170, 186, 202);
     margin: 10px;
 }
 .dateStyle{
-    text-align: center;
   font-size: 25px;
   font-weight: bold;
   color: rgb(255, 200, 50);
@@ -59,16 +48,15 @@ color: rgb(8, 8, 8);
   background-color:rgb(236, 197, 87);
   color: rgb(37, 34, 34);
   font-size: 12px;
+  margin-bottom: 5px;
+margin-left:50px;
+margin-top: 5px;
+}
+.flotRight{
   float: right;
-  margin-bottom: 20px;
-  margin-right: 10px;
-  margin-left: 20px;
+ text-align: right;
 }
-.rightMr{
- margin-bottom: 10px;
- padding-bottom: 10px;
- margin-top: 10px;
-}
+
 .wordWrap{
   word-wrap: break-word;
 }

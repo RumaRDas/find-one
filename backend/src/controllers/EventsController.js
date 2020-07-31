@@ -8,7 +8,7 @@ module.exports = {
             if (err) {
                 res.sendStatusCode(401)
             } else {
-                const { title, description, cost, categories, date } = req.body;
+                const { title, description, cost, categories, contact } = req.body;
                 const { filename } = req.file;
                 const user = await db.User.findById(authData.user._id)
                 if (!user) {
@@ -20,7 +20,7 @@ module.exports = {
                         description,
                         cost: parseFloat(cost),
                         categories,
-                        date,
+                       contact,
                         user: authData.user._id,
                         thumbnail: filename
                     })

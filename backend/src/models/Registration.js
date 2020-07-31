@@ -11,7 +11,7 @@ const RegistrationSchema = new mongoose.Schema({
     event: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Event"
-    }
+    },
 })
 const Registration = mongoose.model('Registration', RegistrationSchema);
 module.exports = Registration;

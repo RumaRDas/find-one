@@ -48,7 +48,7 @@ function Navbar(history) {
             <div className="navbar-start">
               <Link className="navbar-item" to="/dashboard"> Home</Link>
               <Link className="navbar-item" to="aboutus"> About Us</Link>
-              <Link className="navbar-item" to='/dashboardevents'> Event</Link>
+              <Link className="navbar-item" to='/dashboardevents'> Products</Link>
               <Link className="navbar-item" to="/recipies">Recipies</Link>
             </div>
             <div className="navbar-end">

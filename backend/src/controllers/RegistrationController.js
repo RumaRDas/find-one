@@ -16,7 +16,6 @@ module.exports ={
         .populate(`user`,`-password`)
         .populate(`event`)
         .execPopulate();
-        console.log("chELLO FEOM BACKND");
         return res.json(registration);
     },
     async getRegistrationById(req, res) {

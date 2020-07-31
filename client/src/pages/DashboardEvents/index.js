@@ -30,7 +30,7 @@ const DashboardEvents = () => {
 
   const myeventsHandler = async () => {
     try {
-      setSelected("myevents")
+      setSelected("myadd")
       const response = await API.get(`./api/dashboard/user/events`, { headers: { user: user } })
       setEvents(response.data.events)
     } catch (error) {
@@ -63,23 +63,23 @@ const DashboardEvents = () => {
       <div className="filter-panel buttonpad">
         <div className="buttons field has-addons ">
           <button className="button is-success is-outlined" onClick={() => filterHandler(null)} active={selected === null}>ALL Categories</button>
-          <button className="button is-danger is-outlined" onClick={myeventsHandler} active={selected === "myevents"}>My Event</button>
-          <button className="button is-success is-outlined" onClick={() => filterHandler("kids")} active={selected === "kids"}>Kids</button>
-          <button className="button is-info is-outlined" onClick={() => filterHandler("adult")} active={selected === "adult"}>Adult</button>
-          <button className="button is-danger is-outlined" onClick={() => filterHandler("indoor")} active={selected === "indoor"}>Indoor</button>
-          <button className="button is-warning is-outlined" onClick={() => filterHandler("outdoor")} active={selected === "outdoor"}>Outdoor</button>
+          <button className="button is-danger is-outlined" onClick={myeventsHandler} active={selected === "myadd"}>My Add</button>
+          <button className="button is-success is-outlined" onClick={() => filterHandler("partihire")} active={selected === "partihire"}>Parti Hire</button>
+          <button className="button is-info is-outlined" onClick={() => filterHandler("catering")} active={selected === "catering"}>Catering</button>
+          <button className="button is-danger is-outlined" onClick={() => filterHandler("garden")} active={selected === "garden"}>Garden</button>
+          <button className="button is-warning is-outlined" onClick={() => filterHandler("beauty")} active={selected === "beauty"}>Beauty</button>
         </div>
       </div>
       <div className="columns">
         <div className="column is-9">
-          <div className="columns is-multiline">
+
             {
               events.map(event => (
                 <EventCard key={event._id} event={event} deleteEventHandler={deleteEventHandler}  >
                 </EventCard>
               ))
             }
-          </div>
+
         </div>
         <div className="column is-3 rightBack">
           <CreateEvent />

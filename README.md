@@ -1,7 +1,7 @@
 ![image](./images/logo-1.png)
 
 # Description
-Fun Time app is a user friendly app where user can create their own event and let the people know about their event. They can also search about different recipes.
+Find One is a user friendly app where user can ggive advertisement for their small business and let the people know about it.  And User can search the business about  categories.They can also search about different recipes.
 It is a secure app only people who is sign up can access the event  and event owner have right to delete event.
 
 ## Database Use

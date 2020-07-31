@@ -9,6 +9,6 @@ const upload = multer(uploadConfig);
 
 router.post('/', verifyToken, upload.single('thumbnail'), EventsController.createEvent)
 router.delete('/:eventId', verifyToken, EventsController.delete)
-
+router.put('/update/:eventId', verifyToken, EventsController.upDateEvente)
 
 module.exports = router;

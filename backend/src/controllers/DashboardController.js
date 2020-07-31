@@ -3,12 +3,12 @@ const jwt = require('jsonwebtoken');
 
 module.exports = {
 
-    getEventtById(req, res) {
+    getEventById(req, res) {
         jwt.verify(req.token, 'secret', async (err, authData) => {
             if (err) {
                 res.sendStatus(401)
             } else {
-                const { eventId } = req.params;
+                const { eventId } = req.params.eventId;
                 try {
                     const events = await db.Event.findById(eventId)
                     if (events) {
@@ -59,25 +59,5 @@ module.exports = {
             }
         })
     },
-
-    editEventtById(req, res) {
-        jwt.verify(req.token, 'secret', async (err, authData) => {
-            if (err) {
-                res.sendStatus(401)
-            } else {
-                const { eventId } = req.params;
-                try {
-                    const events = await db.Event.put(eventId)
-                    if (events) {
-                        return res.json({authData: authData, events:events })
-                    }
-                } catch (error) {
-                    return res.status(400).json({ message: 'Event  does not exist!' })
-                }
-            }
-        })
-    },
-
-
 
 }

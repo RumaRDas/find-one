@@ -48,6 +48,23 @@ module.exports = {
                 }
             }
         })
-    }
+    },
+upDateEvente(req, res) {
+        jwt.verify(req.token, 'secret', async (err, authData) => {
+            if (err) {
+                res.sendStatus(401)
+            } else {
+                const { eventId } = req.params;
+                try {
+                    const events = await db.Event.findOneAndUpdate({eventId}, req.body)
+                    if (events) {
+                        return res.json({authData: authData, events:events })
+                    }
+                } catch (error) {
+                    return res.status(400).json({ message: 'Event  does not exist!' })
+                }
+            }
+        })
+    },
 
 }

@@ -2,12 +2,12 @@ import React, { useState, useMemo, useEffect } from 'react';
 import Container from '../../components/Container';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 import cameraIcon from '../../assets/image/camera.png';
-import { Link, Redirect} from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { Dropdown } from 'react-bulma-components';
 import API from '../../services/API';
 import './style.css';
 
-const CreateEvent = ({ history }) => {
+const CreateEvent = () => {
 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
@@ -16,7 +16,6 @@ const CreateEvent = ({ history }) => {
     const [categories, setCategories] = useState("")
     const [thumbnail, setThumbnail] = useState(null);
     const [error, setError] = useState(false)
-    const [errorMessage, setErrorMessage] = useState(false);
     const [success, SetSuccess] = useState(false);
     const [event, setEvent] = useState();
     const user = localStorage.getItem('user');
@@ -49,34 +48,23 @@ const CreateEvent = ({ history }) => {
             ) {
                 const response = await API.post("./api/event", eventData, { headers: { user } });
                 if (response.status == 200) {
-                    console.log("Hellooooooo")
+                    SetSuccess(true)
                     setEvent(response.eventData);
                     return <Redirect to="/dashboardevent" />
-                    SetSuccess(true)
-                    setTimeout(() => {
-                        SetSuccess(false)
-                    })
                 }
                 else {
                     setError(true)
-                    setTimeout(() => {
-                        setError(false)
-                    })
                 }
             }
-
         } catch (error) {
             Promise.reject(error);
-            console.log(error.message);
-
+            setError(true);
         }
     }
 
     const CatagoryEventHandler = (categories) => {
         setCategories(categories)
     }
-
-
 
     return (
 
@@ -142,11 +130,9 @@ const CreateEvent = ({ history }) => {
                     </div>
                     <div className="control">
                         <Link className="login-btn" to="/dashboardevents" >Cancel</Link>
-
                     </div>
-
                     {error ? (
-                        <div className="notification is-danger is-light event-validation"> Missing require information</div>
+                        <div className="notification is-danger is-light event-validation">You need to fill all the input</div>
                     ) : ''}
                     {success ? (
                         <div className="notification is-success is-light event-validation"> Event was Created successfuly</div>

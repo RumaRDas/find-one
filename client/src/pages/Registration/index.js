@@ -22,26 +22,17 @@ function Registration({ history }) {
             const response = await API.post('/api/users', { firstName, lastName, email, password })
 
             if (response.status == 200) {
-                console.log("Hello User")
                 SetSuccess(true);
 
             } else {
                 const { message } = response.data
                 setError(true)
                 setErrorMessage(message)
-                setTimeout(() => {
-                    setError(false)
-                    setErrorMessage("")
-                }, 2000)
             }
         }
         else {
             setError(true)
             setErrorMessage("You need to fill all the input")
-            setTimeout(() => {
-                setError(false)
-                setErrorMessage("")
-            }, 2000)
         }
     }
 

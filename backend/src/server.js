@@ -15,7 +15,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 try {
-	mongoose.connect(process.env.MONGO_DB_CONNECTION, {
+	mongoose.connect(process.env.MONGO_DB_CONNECTION || "mongodb://localhost/ mongoHeadlines" , {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 	})
@@ -24,6 +24,7 @@ try {
 	console.log(error)
 }
 
+mongoose.connect(MONGO_DB_CONNECTION)
 app.use("/files", express.static(path.resolve(__dirname, "..", "files")))
 
 app.use(routes);

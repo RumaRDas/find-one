@@ -1,0 +1,21 @@
+{
+  "name": "fun-with-color",
+  "version": "1.0.0",
+  "description": "![image](./images/logo-1.png)",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd backend && npm start",
+    "install": "cd backend && npm install && cd ../client && npm install ",
+    "build": "cd client && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RumaRDas/fun-with-color.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RumaRDas/fun-with-color/issues"
+  },
+  "homepage": "https://github.com/RumaRDas/fun-with-color#readme"
+}

@@ -14,7 +14,7 @@ app.use(express.json())
 if (process.env.NODE_ENV !== 'production') {
 	require('dotenv').config()
 }
-let MONGO_DB_CONNECTION ="mongodb+srv://temp_user:tAkmNN8jC3cPXqBh@cluster0.krzns.mongodb.net/<dbname>?retryWrites=true&w=majority"
+// let MONGO_DB_CONNECTION ="mongodb+srv://temp_user:tAkmNN8jC3cPXqBh@cluster0.krzns.mongodb.net/<dbname>?retryWrites=true&w=majority"
 try {
 	mongoose.connect(process.env.MONGO_DB_CONNECTION || "mongodb://localhost/ mongoHeadlines" , {
 		useNewUrlParser: true,

@@ -28,6 +28,13 @@ app.use("/files", express.static(path.resolve(__dirname, "..", "files")))
 
 app.use(routes);
 
+app.use(express.static(path.resolve(__dirname, "../../", "client/build")))
+
+app.get('*', (req, res) => {
+	fs.readFile(path.resolve(__dirname, '../../client/build/index.html'), 'utf-8', (error, body) => {
+		res.send(body);
+	});
+});
 app.listen(PORT, () => {
 	console.log(`Listening on ${PORT}`)
 })

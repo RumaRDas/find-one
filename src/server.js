@@ -25,7 +25,6 @@ try {
 	console.log(error)
 }
 
-mongoose.connect(MONGO_DB_CONNECTION)
 app.use("/files", express.static(path.resolve(__dirname, "..", "files")))
 
 app.use(routes);

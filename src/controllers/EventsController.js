@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 module.exports = {
     //For Creating new events
     createEvent(req, res) {
+        console.log('the post req works')
         jwt.verify(req.token, 'secret', async (err, authData) => {
             if (err) {
                 res.status(401)

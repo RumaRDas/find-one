@@ -17,7 +17,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 let MONGO_DB_CONNECTION ="mongodb+srv://temp_user:tAkmNN8jC3cPXqBh@cluster0.krzns.mongodb.net/<dbname>?retryWrites=true&w=majority"
 try {
-	mongoose.connect(MONGO_DB_CONNECTION || "mongodb://localhost/ mongoHeadlines" , {
+	mongoose.connect(process.env.MONGODB_URI|| "mongodb://localhost/ mongoHeadlines" , {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 	})

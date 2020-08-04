@@ -28,7 +28,7 @@ function EventCard(props) {
           <div className="eventText">
             <span ><strong>Categories:</strong> {props.event.categories}</span>
             <br></br>
-            <span > <strong>charges :</strong> {parseFloat(props.event.cost).toFixed(2)}</span>
+            <span > <strong>charges : $ </strong> {parseFloat(props.event.cost).toFixed(2)}</span>
             <br></br>
             <div className='wordWrap'><span> <strong>Descriptin :</strong>{props.event.description}</span></div>
             <p className="subtitle is-6 dateStyle">Contact No: {props.event.contact}</p>

@@ -40,13 +40,12 @@ const Dashboard = () => {
                             <div className="card-content">
                                 <div className="media">
                                     <div className="media-content headerStyle">
-                                        <p className="title headerStyle">Images</p>
+                                        <p className="title headerStyle">Future Plan</p>
                                     </div>
                                 </div>
-                           
                                 <div className="content">
-                                   
-                                <h3> Future Plane</h3>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Phasellus nec iaculis mauris.
                             </div>
                             </div>
                             <div className="card-image">
@@ -59,7 +58,7 @@ const Dashboard = () => {
                 </div>
 
                 <div className="column is-4">
-                    <Link to="#">
+                    <Link to="/recipies">
                         <div className="card">
                             <div className="card-image">
                                 <figure className="image is-4by3">

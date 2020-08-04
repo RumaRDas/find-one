@@ -55,6 +55,7 @@ function Navbar(history) {
               <div className="navbar-item">
                 <div className="buttons">
                   <Link className="button purple-btn" to="/registration">Sign up</Link>
+                  <Link className="button pink-btn" to="/">Log in</Link>
                   <button className="button pink-btn" onClick={logOut}>Log Out</button>
                 </div>
               </div>

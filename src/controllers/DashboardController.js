@@ -32,6 +32,7 @@ module.exports = {
                 const query = categories ? { categories } : {}
                 try {
                     const events = await db.Event.find(query)
+                    .sort({ date: -1 })
                     if (events) {
                         return res.json({ authData, events })
                     }

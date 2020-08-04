@@ -14,7 +14,7 @@ body,
 }
 
 body {
-    background: rgba(0,0,0,0.200) url('../assets/image/back_yellow.jpg') no-repeat;
+    background: rgba(0,0,0,0.200) url('../assets/image/back_brown.jpg') no-repeat;
     background-size: cover;
     height:100%;
     min-height: 900px; 

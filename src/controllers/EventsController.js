@@ -6,7 +6,7 @@ module.exports = {
     createEvent(req, res) {
         jwt.verify(req.token, 'secret', async (err, authData) => {
             if (err) {
-                res.sendStatusCode(401)
+                res.status(401)
             } else {
                 const { title, description, cost, categories, contact } = req.body;
                 const { filename } = req.file;

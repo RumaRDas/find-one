@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const endPoint =  process.env.NODE_ENV || `http://localhost:4000` 
 const EventSchema = new mongoose.Schema({
     title: String,
     description: String,
@@ -18,6 +18,6 @@ const EventSchema = new mongoose.Schema({
     }
 }
 )
-EventSchema.virtual('thumbnail_url').get(function () { return `http://localhost:4000/files/${this.thumbnail}` })
+EventSchema.virtual('thumbnail_url').get(function () { return `${endPoint}/files/${this.thumbnail}` })
 const Event = mongoose.model('Event', EventSchema);
 module.exports = Event;

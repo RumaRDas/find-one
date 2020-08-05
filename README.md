@@ -7,9 +7,6 @@ It is a secure app only people who is sign up can access the event  and event ow
 ## Database Use
  MongoDB / Mongoose: [ https://www.mongodb.com/](http://mongoosejs.com/)
 
-## Daase Model
-![image](./images/schema.png)
-
 ## Technologies/ Libraries Used:
    * Node.js [https://nodejs.org/en/](https://nodejs.org/en/)
    * Express [https://expressjs.com/]( https://expressjs.com/)

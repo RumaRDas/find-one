@@ -64,7 +64,7 @@ const DashboardEvents = () => {
         <div className="buttons field has-addons ">
           <button className="button is-success is-outlined" onClick={() => filterHandler(null)} active={selected === null}>ALL Categories</button>
           <button className="button is-danger is-outlined" onClick={myeventsHandler} active={selected === "myadd"}>My Add</button>
-          <button className="button is-success is-outlined" onClick={() => filterHandler("partihire")} active={selected === "partihire"}>Parti Hire</button>
+          <button className="button is-success is-outlined" onClick={() => filterHandler("partyhire")} active={selected === "partyhire"}>Party Hire</button>
           <button className="button is-info is-outlined" onClick={() => filterHandler("catering")} active={selected === "catering"}>Catering</button>
           <button className="button is-danger is-outlined" onClick={() => filterHandler("garden")} active={selected === "garden"}>Garden</button>
           <button className="button is-warning is-outlined" onClick={() => filterHandler("beauty")} active={selected === "beauty"}>Beauty</button>

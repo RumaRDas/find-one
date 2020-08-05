@@ -26,7 +26,13 @@ It is a secure app only people who is sign up can access the event  and event ow
 
 ## Github Link
     
-    [ Fun Time](https://github.com/RumaRDas/fun-with-color.git)
+[https://github.com/RumaRDas/fun-with-color.git](https://github.com/RumaRDas/fun-with-color.git)
+
+## Heroku Link
+ [https://protected-headland-56354.herokuapp.com/](https://protected-headland-56354.herokuapp.com/)
+
+![Page View](./images/pic_2.png)
+![Page View](./images/pic_1.png)
 
      
 

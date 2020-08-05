@@ -89,7 +89,7 @@ const CreateEvent = () => {
                             </div>
                             <div className="column">
                                 <Dropdown trigger="Choose">
-                                    <a className="navbar-item" onClick={() => CatagoryEventHandler('partihire')}> Parti Hire</a>
+                                    <a className="navbar-item" onClick={() => CatagoryEventHandler('partyhire')}> Party Hire</a>
                                     <a className="navbar-item" onClick={() => CatagoryEventHandler('catering')}>  Catering</a>
                                     <a className="navbar-item" onClick={() => CatagoryEventHandler('garden')}>  Garden</a>
                                     <a className="navbar-item" onClick={() => CatagoryEventHandler('beauty')}> Beauty </a>
